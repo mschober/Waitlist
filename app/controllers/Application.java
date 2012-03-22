@@ -10,7 +10,9 @@ import models.*;
 public class Application extends Controller {
 
     public static void index() {
-    	List<Applicant> applicants = Applicant.find("id > ? order by id asc", 1l).fetch();
+    	Applicant kim = new Applicant("Kim", "Pohl", "1234 somewhwers ville, CA 92342",  "null", "someEmail@gmail.com");
+    	kim.save();
+    	List<Applicant> applicants = Applicant.find("date >= '2012-03-21 22:00:00, yyyy-mm-dd HH:mm:ss' AND date <= '2012-03-24 22:00:30, yyyy-mm-dd HH:mm:ss' and id > ? order by id desc", 1l).fetch();
         render(applicants);
     }
 
