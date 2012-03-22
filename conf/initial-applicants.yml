@@ -1,0 +1,7 @@
+# Test data
+
+Applicant(michael):
+    firstName:          Michael
+    lastName:           Schober
+    address:            3706 Amalfi Way Apt. B Santa Barbara, CA 93105
+    phoneNumber:        (253)468-4141
