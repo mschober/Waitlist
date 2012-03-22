@@ -1,4 +1,14 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
 
-#{welcome /}
+<div class="applicant">
+    <ul>
+        #{list items:applicants, as:'applicant'}
+            <li>First Name: ${applicant.firstName} </li>
+            <li>Last Name: ${applicant.lastName}</li>
+            <li>Address:   ${applicant.address}</li>
+            <li>Phone Number: ${applicant.phoneNumber} </li>
+        <br>
+        #{/list}
+    </ul>
+</div>

@@ -10,8 +10,8 @@ import models.*;
 public class Application extends Controller {
 
     public static void index() {
-    	Applicant michael = Applicant.find("byFirstName", "Michael").first();
-        render(michael);
+    	List<Applicant> applicants = Applicant.find("id > ? order by id asc", 1l).fetch();
+        render(applicants);
     }
 
 }

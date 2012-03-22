@@ -4,7 +4,7 @@ import play.test.*;
  
 import models.*;
  
-@OnApplicationStart
+/*@OnApplicationStart
 public class Bootstrap extends Job {
  
     public void doJob() {
@@ -14,4 +14,4 @@ public class Bootstrap extends Job {
         }
     }
  
-}
+}*/

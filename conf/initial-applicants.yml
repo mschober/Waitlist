@@ -5,3 +5,10 @@ Applicant(michael):
     lastName:           Schober
     address:            3706 Amalfi Way Apt. B Santa Barbara, CA 93105
     phoneNumber:        (253)468-4141
+    
+Applicant(jennie):
+    firstName:          Jennie
+    lastName:           Schober
+    address:            3706 Amalfi Way Apt. B Santa Barbara, CA 93105
+    phoneNumber:        (253)350-0220
+   

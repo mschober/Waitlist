@@ -4,3 +4,4 @@ tmp/*
 .settings/*
 eclipse/*
 test-result/*
+*.swp
