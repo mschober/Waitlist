@@ -5,3 +5,4 @@ tmp/*
 eclipse/*
 test-result/*
 *.swp
+*.log

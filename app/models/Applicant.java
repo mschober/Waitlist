@@ -3,6 +3,8 @@ package models;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import play.db.jpa.Model;
 
@@ -11,17 +13,15 @@ public class Applicant extends Model {
 
 	public String firstName;
 	public String lastName;
-	public String address;
-	public String phoneNumber;
-	public String email;
+	public PrimaryContact contact;
+	public Boat boat;
 	public Date date;
 
-	public Applicant(String firstName, String lastName, String address, String phoneNumber, String email) {
+	public Applicant(String firstName, String lastName, PrimaryContact contact, Boat boat) {
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.address = address;
-		this.phoneNumber = phoneNumber;
-		this.email = email;
+		this.contact = contact;
+		this.boat = boat;
 		this.date = new Date();
 	}
 }
