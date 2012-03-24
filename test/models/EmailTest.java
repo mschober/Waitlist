@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import play.test.UnitTest;
+import utils.WaitlistTestHelper;
 
 public class EmailTest extends UnitTest {
 
@@ -16,7 +17,7 @@ public class EmailTest extends UnitTest {
 	@Before
 	public void setUp() throws Exception {
 		jennie = new Applicant("Jennie", "Schober").save();
-		email = new Email(jennie, "3706 Amalfi Way", "Santa Barbara", "CA", 93105);
+		email = new Email(jennie, "jennie.schober@gmail.com");
 	}
 
 	@Test
@@ -25,6 +26,10 @@ public class EmailTest extends UnitTest {
 		Email found = Email.find("byApplicant", jennie).first();
 		assertNotNull(found);
 		assertEquals(jennie, found.applicant);
+		
+		WaitlistTestHelper.assertOnlyOne(Email.count());
+		email.delete();
+		WaitlistTestHelper.assertNone(Email.count());
 		
 	}
 
