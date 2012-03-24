@@ -1,7 +1,9 @@
 package models;
 
 import static org.junit.Assert.*;
-import static utils.TestApplicant.*;
+import static utils.TestApplicantHelper.*;
+
+import java.util.Date;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -9,7 +11,7 @@ import org.junit.Test;
 import play.db.jpa.JPABase;
 import play.test.Fixtures;
 import play.test.UnitTest;
-import utils.TestApplicant;
+import utils.TestApplicantHelper;
 
 public class ApplicantTest extends UnitTest {
 
@@ -30,6 +32,7 @@ public class ApplicantTest extends UnitTest {
 		assertEquals(applicant, found);
 		assertEquals(MICHAEL, found.firstName);
 		assertEquals(SCHOBER, found.lastName);
+		assertTrue(new Date().compareTo(found.date) > 0);
 	}
 
 }
