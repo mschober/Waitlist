@@ -15,7 +15,8 @@ public class Application extends Controller {
     }
     
     public static void que(){
-    	render();
+    	List<Applicant> applicants = Applicant.find("id > ? order by id asc", 1l).fetch();
+    	render(applicants);
     }
     
     public static void post(@Required String fname, @Required String lname){
