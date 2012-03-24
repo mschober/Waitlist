@@ -1,28 +1,3 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
 
-<div class="applicant-table">
-  <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Date Applied</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Address</th>
-            <th>Email</th>
-            <th>Phone Number</th>
-          </tr>
-        </thead>
-        <tbody>
-            #{list items:applicants, as:'applicant'}
-              <tr>
-                <td>${applicant.id}</td>
-                <td>${applicant.date}</td>
-                <td>${applicant.firstName}</td>
-                <td>${applicant.lastName}</td>
-              </tr>
-            #{/list}
-        </tbody>
-      </table>
-</div>

@@ -15,5 +15,9 @@ public class Application extends Controller {
     	List<Applicant> applicants = Applicant.find("date >= '2012-03-21 22:00:00, yyyy-mm-dd HH:mm:ss' AND date <= '2012-03-24 22:00:30, yyyy-mm-dd HH:mm:ss' and id > ? order by id desc", 1l).fetch();
         render(applicants);
     }
+    
+    public static void que(){
+    	render();
+    }
 
 }
