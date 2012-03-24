@@ -1,6 +1,7 @@
 package models;
 
 import static org.junit.Assert.*;
+import static utils.TestApplicant.*;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -8,6 +9,7 @@ import org.junit.Test;
 import play.db.jpa.JPABase;
 import play.test.Fixtures;
 import play.test.UnitTest;
+import utils.TestApplicant;
 
 public class ApplicantTest extends UnitTest {
 
@@ -16,12 +18,18 @@ public class ApplicantTest extends UnitTest {
 	@Before
 	public void setUp() throws Exception {
 		Fixtures.deleteDatabase();
-		applicant = new Applicant("first", "last").save();
+		applicant = new Applicant(MICHAEL, SCHOBER).save();
 	}
 
 	@Test
 	public void canCreateNewApplicant() {
 		assertNotNull(applicant);
+		Applicant found = findByFirstName(MICHAEL);
+		assertEquals(applicant, found);
+		found = Applicant.find(BY_LAST_NAME, SCHOBER).first();
+		assertEquals(applicant, found);
+		assertEquals(MICHAEL, found.firstName);
+		assertEquals(SCHOBER, found.lastName);
 	}
 
 }
