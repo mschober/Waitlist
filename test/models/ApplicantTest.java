@@ -12,15 +12,18 @@ import play.db.jpa.JPABase;
 import play.test.Fixtures;
 import play.test.UnitTest;
 import utils.TestApplicantHelper;
+import utils.WaitlistTestHelper;
 
 public class ApplicantTest extends UnitTest {
 
 	private Applicant applicant;
+	private Contact mikeGmail;
 
 	@Before
 	public void setUp() throws Exception {
 		Fixtures.deleteDatabase();
-		applicant = new Applicant(MICHAEL, SCHOBER).save();
+		mikeGmail = new Contact("mike.schober@gmail.com").save();
+		applicant = new Applicant(MICHAEL, SCHOBER, mikeGmail).save();
 	}
 
 	@Test
@@ -33,6 +36,22 @@ public class ApplicantTest extends UnitTest {
 		assertEquals(MICHAEL, found.firstName);
 		assertEquals(SCHOBER, found.lastName);
 		assertTrue(new Date().compareTo(found.date) > 0);
+		
+	}
+	
+	@Test
+	public void canFindBeEmail(){
+		assertEquals(applicant, Applicant.find("byContact", mikeGmail).first());
+	}
+	
+	@Test
+	public void deletingApplicantDeletesContact(){
+		WaitlistTestHelper.assertOnlyOne(Contact.count());
+		WaitlistTestHelper.assertOnlyOne(Applicant.count());
+		applicant.delete();
+		WaitlistTestHelper.assertNone(Applicant.count());
+		mikeGmail.delete();
+		WaitlistTestHelper.assertNone(Contact.count());
 	}
 
 }
