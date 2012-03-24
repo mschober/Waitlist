@@ -3,5 +3,13 @@
 #{selenium}
     // Open the home page, and check that no error occured
     open('/')
-    assertNotTitle('Application error')
+ 
+     assertHeaderTitle('Home');
+    // Check that the front post is present
+    assertTextPresent('First name:')
+    assertTextPresent('Last name:')
+    
+    open('/que')
+    
+    assertHeaderTitle('Que');
 #{/selenium}
