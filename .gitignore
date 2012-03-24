@@ -6,3 +6,6 @@ eclipse/*
 test-result/*
 *.swp
 *.log
+/logs
+/lib
+/modules
