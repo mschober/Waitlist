@@ -2,5 +2,4 @@
 
 require:
     - play
-    - play -> cobertura 2.5
 
