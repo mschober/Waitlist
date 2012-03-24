@@ -19,11 +19,13 @@ public class Application extends Controller {
     	render(applicants);
     }
     
-    public static void post(@Required String fname, @Required String lname, @Required String email){
+    public static void post(@Required String fname, @Required String lname, @Required String contact){
     	if(validation.hasErrors())
     		System.out.println("has errors");
-    	else
-    		new Applicant(fname, lname, new Contact(email)).save();
+    	else{
+    		Contact email = new Contact(contact).save();
+			new Applicant(fname, lname, email).save();
+    	}
     	
     	index();
     }
