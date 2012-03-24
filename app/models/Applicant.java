@@ -13,15 +13,11 @@ public class Applicant extends Model {
 
 	public String firstName;
 	public String lastName;
-	public PrimaryContact contact;
-	public Boat boat;
 	public Date date;
 
-	public Applicant(String firstName, String lastName, PrimaryContact contact, Boat boat) {
+	public Applicant(String firstName, String lastName) {
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.contact = contact;
-		this.boat = boat;
 		this.date = new Date();
 	}
 }
