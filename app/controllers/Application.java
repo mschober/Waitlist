@@ -25,8 +25,9 @@ public class Application extends Controller {
     public static void post(@Required String fname, @Required String lname){
     	if(validation.hasErrors())
     		System.out.println("has errors");
+    	else
+    		new Applicant(fname, lname).save();
     	
-    	new Applicant(fname, lname).save();
     	index();
     }
 
