@@ -13,6 +13,10 @@ public class PhoneNumberTest extends WLTest {
 		assertFalse(PhoneNumberValidator.validate("adfa"));
 		assertFalse(PhoneNumberValidator.validate("01234567890"));
 		assertFalse(PhoneNumberValidator.validate("0123456789"));
-
+	}
+	
+	@Test
+	public void isHyphenated(){
+		assertEquals("253-468-4141", PhoneNumberValidator.formatWithDashes("2534684141"));
 	}
 }

@@ -24,4 +24,11 @@ public class PhoneNumberValidator {
 		return is;
 	}
 
+	public static String formatWithDashes(String phoneNumber2) {
+		String areaCode = phoneNumber2.substring(0, 3);
+		String preFix = phoneNumber2.substring(3, 6);
+		String lineNumber = phoneNumber2.substring(6);
+		return areaCode + "-" + preFix + "-" + lineNumber;
+	}
+
 }
