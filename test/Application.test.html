@@ -1,6 +1,6 @@
 *{ You can use plain selenium command using the selenium tag }*
 
-#{fixture load:'data.yml' /}
+#{fixture delete:'all', load:'data.yml' /}
 
 #{selenium}
     // Open the home page, and check that no error occured
@@ -18,5 +18,5 @@
     assertTextPresent('Michael')
     assertTextPresent('Kurstyn')
     assertTextPresent('Chris')
-	verifyText('//table[@id='applicants']//tr[2]/td[7]', '2534684141')
+	verifyText('//table[@id='applicants']//tr[2]/td[7]', '253-468-4141')
 #{/selenium}
