@@ -15,14 +15,17 @@ Contact(c1):
 Applicant(mike):
     firstName: Michael
     lastName: Schober
+    date: 2009-03-25
     contact: c1
     
 Applicant(kurstyn):
     firstName: Kurstyn
     lastName: Schober
+    date: 2009-03-25
     contact: c1
     
 Applicant(chris):
     firstName: Chris
     lastName: Schober
+    date: 2009-03-25
     contact: c1

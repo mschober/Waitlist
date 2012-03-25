@@ -3,6 +3,7 @@ package controllers;
 import play.*;
 import play.data.validation.Required;
 import play.mvc.*;
+import utils.Lakewood;
 
 import java.util.*;
 
@@ -15,8 +16,7 @@ public class Application extends Controller {
 	}
 
 	public static void que() {
-		List<Applicant> applicants = Applicant.find("id > ? order by id asc",
-				1l).fetch();
+		List<Applicant> applicants = Lakewood.findAllApplicantsBy(Lakewood.ALL_BY_ID);
 		render(applicants);
 	}
 

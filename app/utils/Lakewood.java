@@ -1,11 +1,16 @@
 package utils;
 
 import static utils.WaitlistTestHelper.*;
+
+import java.util.List;
+
 import models.Applicant;
 import models.Contact;
 import models.PostalAddress;
 
 public class Lakewood {
+
+	public static final String ALL_BY_ID = "id >= ? order by id asc";
 
 	public static Contact findFirstContactByPhoneNumber(String number) {
 		return Contact.find(BY_PHONE_NUMBER, number).first();
@@ -21,6 +26,10 @@ public class Lakewood {
 
 	public static Applicant findFirstApplicantByLastName(String lastName) {
 		return Applicant.find(BY_LAST_NAME, lastName).first();
+	}
+
+	public static List<Applicant> findAllApplicantsBy(String string) {
+		return Applicant.find("id >= ? order by id asc", 1l).fetch();
 	}
 
 }

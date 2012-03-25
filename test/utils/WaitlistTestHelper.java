@@ -66,4 +66,8 @@ public class WaitlistTestHelper {
 			assertEquals(expects[i], actuals[i]);
 	}
 
+	public static void assertThree(long count) {
+		assertEquals(3, count);
+	}
+
 }
