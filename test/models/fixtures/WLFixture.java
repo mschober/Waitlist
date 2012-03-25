@@ -1,5 +1,6 @@
 package models.fixtures;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
 
@@ -12,7 +13,20 @@ public class WLFixture extends WLTest {
 	
 	@Before
 	public void loadData(){
-		Fixtures.loadModels("data.yml");
+		prepDatabase();
+	}
+	
+	@After
+	public void reloadData(){
+		prepDatabase();
 	}
 
+	private void prepDatabase() {
+		super.clearData();
+		load();
+	}
+	
+	private void load() {
+		Fixtures.loadModels("data.yml");
+	}
 }

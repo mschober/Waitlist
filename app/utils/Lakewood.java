@@ -27,6 +27,10 @@ public class Lakewood {
 	public static Applicant findFirstApplicantByLastName(String lastName) {
 		return Applicant.find(BY_LAST_NAME, lastName).first();
 	}
+	
+	public static Applicant findFirstApplicantByFirstName(String firstName){
+		return Applicant.find(BY_FIRST_NAME, firstName).first();
+	}
 
 	public static List<Applicant> findAllApplicantsBy(String string) {
 		return Applicant.find("id >= ? order by id asc", 1l).fetch();

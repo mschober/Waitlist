@@ -69,5 +69,9 @@ public class WaitlistTestHelper {
 	public static void assertThree(long count) {
 		assertEquals(3, count);
 	}
+	
+	public static void assertTwo(long count) {
+		assertEquals(2, count);
+	}
 
 }
