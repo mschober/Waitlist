@@ -6,10 +6,18 @@
 #   password: secret
 #   fullname: Bob
 
-contact(c1):
-	
+PostalAddress(pa1):
+    address: 3706 Amalfi Way
+    city: Santa Barbra
+    state: CA
+    zip: 93105
+
+Contact(c1):
+    email: mike.schober@gmail.com
+    phoneNumber: 253-468-4141
+    postalAddress: pa1
 
 Applicant(mike):
-	firstName: Michael
-	lastName: Schober
-	contact: c1
+    firstName: Michael
+    lastName: Schober
+    contact: c1
