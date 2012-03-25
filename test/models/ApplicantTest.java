@@ -1,6 +1,7 @@
 package models;
 
 import static org.junit.Assert.*;
+import static utils.WaitlistTestHelper.*;
 import static utils.TestApplicantHelper.*;
 
 import java.util.Date;
@@ -24,9 +25,9 @@ public class ApplicantTest extends UnitTest {
 	@Before
 	public void setUp() throws Exception {
 		Fixtures.deleteDatabase();
-		Address sbHome = WaitlistTestHelper.createDefaultPostalAddress();
-		mikeGmail = WaitlistTestHelper.createDefaultContact(sbHome);
-		applicant = WaitlistTestHelper.createDefaultApplicant(mikeGmail);
+		Address sbHome = createDefaultPostalAddress();
+		mikeGmail = createDefaultContact(sbHome);
+		applicant = createDefaultApplicant(mikeGmail);
 	}
 
 	@Test
@@ -49,12 +50,12 @@ public class ApplicantTest extends UnitTest {
 	
 	@Test
 	public void deletingApplicantDeletesContact(){
-		WaitlistTestHelper.assertOnlyOne(Contact.count());
-		WaitlistTestHelper.assertOnlyOne(Applicant.count());
+		assertOnlyOne(Contact.count());
+		assertOnlyOne(Applicant.count());
 		applicant.delete();
-		WaitlistTestHelper.assertNone(Applicant.count());
+		assertNone(Applicant.count());
 		mikeGmail.delete();
-		WaitlistTestHelper.assertNone(Contact.count());
+		assertNone(Contact.count());
 	}
 
 	@Test
