@@ -7,8 +7,9 @@ import org.junit.Test;
 
 import play.test.UnitTest;
 import utils.WaitlistTestHelper;
+import wl.WLTest;
 
-public class AddressTest extends UnitTest {
+public class AddressTest extends WLTest {
 	
 	private PostalAddress address;
 

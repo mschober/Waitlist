@@ -8,8 +8,9 @@ import org.junit.Test;
 
 import play.test.UnitTest;
 import utils.WaitlistTestHelper;
+import wl.WLTest;
 
-public class ContactTest extends UnitTest {
+public class ContactTest extends WLTest {
 
 	private Contact contact;
 	private PostalAddress sbHome;

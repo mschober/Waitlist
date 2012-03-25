@@ -1,6 +1,7 @@
 package utils;
 
 import static org.junit.Assert.*;
+import static utils.WaitlistTestHelper.LOWERCASE;
 import models.PostalAddress;
 import models.Applicant;
 import models.Contact;
@@ -22,6 +23,7 @@ public class WaitlistTestHelper {
 	public static final int CAP_Z = 90;
 	public static final int CAP_A = 65;
 	public static final String LOWERCASE = "lowercase";
+	public static final String BY_CONTACT = "byContact";
 
 	public static void assertOnlyOne(long count) {
 		assertEquals(1, count);
@@ -53,6 +55,10 @@ public class WaitlistTestHelper {
 
 	public static boolean isCapitalized(String firstName) {
 		return isCapitalized(firstName.charAt(0));
+	}
+
+	public static Applicant createLowerCaseApplicant() {
+		return new Applicant(LOWERCASE, LOWERCASE, null);
 	}
 
 }

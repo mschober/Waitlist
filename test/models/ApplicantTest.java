@@ -2,6 +2,7 @@ package models;
 
 import static org.junit.Assert.*;
 import static utils.WaitlistTestHelper.*;
+import wl.WLTest;
 
 import java.util.Date;
 
@@ -13,14 +14,13 @@ import play.test.Fixtures;
 import play.test.UnitTest;
 import utils.WaitlistTestHelper;
 
-public class ApplicantTest extends UnitTest {
+public class ApplicantTest extends WLTest {
 
 	private Applicant applicant;
 	private Contact mikeGmail;
 
 	@Before
 	public void setUp() throws Exception {
-		Fixtures.deleteDatabase();
 		PostalAddress sbHome = createDefaultPostalAddress();
 		mikeGmail = createDefaultContact(sbHome);
 		applicant = createDefaultApplicant(mikeGmail);
@@ -41,7 +41,7 @@ public class ApplicantTest extends UnitTest {
 	
 	@Test
 	public void canFindBeEmail(){
-		assertEquals(applicant, Applicant.find("byContact", mikeGmail).first());
+		assertEquals(applicant, Applicant.find(BY_CONTACT, mikeGmail).first());
 	}
 	
 	@Test
@@ -64,9 +64,5 @@ public class ApplicantTest extends UnitTest {
 	public void lastNameFirstLetterCapitalized(){
 		String lastName = createLowerCaseApplicant().lastName;
 		assertTrue(isCapitalized(lastName));
-	}
-	
-	private Applicant createLowerCaseApplicant() {
-		return new Applicant(LOWERCASE, LOWERCASE, null);
 	}
 }
