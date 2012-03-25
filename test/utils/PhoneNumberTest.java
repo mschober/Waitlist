@@ -12,5 +12,7 @@ public class PhoneNumberTest extends WLTest {
 		assertTrue(PhoneNumberValidator.validate("2534684141"));
 		assertFalse(PhoneNumberValidator.validate("adfa"));
 		assertFalse(PhoneNumberValidator.validate("01234567890"));
+		assertFalse(PhoneNumberValidator.validate("0123456789"));
+
 	}
 }

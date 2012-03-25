@@ -6,7 +6,11 @@ public class PhoneNumberValidator {
 	private static final int ZERO = 48;
 
 	public static boolean validate(String phoneNumber) {
-		return isAllNumbers(phoneNumber) && isTenDigits(phoneNumber);
+		return isAllNumbers(phoneNumber) && isTenDigits(phoneNumber) && doesNotStartWithZero(phoneNumber);
+	}
+
+	private static boolean doesNotStartWithZero(String phoneNumber) {
+		return !(phoneNumber.charAt(0) == ZERO);
 	}
 
 	private static boolean isTenDigits(String phoneNumber) {
