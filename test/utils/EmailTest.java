@@ -1,12 +1,8 @@
-package models;
-
-import static org.junit.Assert.*;
+package utils;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import utils.EmailValidator;
-import utils.SimpleEmailValidator;
 import wl.WLTest;
 
 public class EmailTest extends WLTest {
