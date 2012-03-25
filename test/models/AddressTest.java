@@ -10,7 +10,7 @@ import utils.WaitlistTestHelper;
 
 public class AddressTest extends UnitTest {
 	
-	private Address address;
+	private PostalAddress address;
 
 	@Before
 	public void setup(){

@@ -27,7 +27,7 @@ public class Application extends Controller {
 		if (validation.hasErrors())
 			System.out.println("has errors");
 		else {
-			Address postalAddress = new Address(address, city, state, zip).save();
+			PostalAddress postalAddress = new PostalAddress(address, city, state, zip).save();
 			Contact contact = new Contact(email, phoneNumber, postalAddress).save();
 			new Applicant(fname, lname, contact).save();
 		}

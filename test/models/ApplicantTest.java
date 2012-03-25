@@ -23,7 +23,7 @@ public class ApplicantTest extends UnitTest {
 	@Before
 	public void setUp() throws Exception {
 		Fixtures.deleteDatabase();
-		Address sbHome = createDefaultPostalAddress();
+		PostalAddress sbHome = createDefaultPostalAddress();
 		mikeGmail = createDefaultContact(sbHome);
 		applicant = createDefaultApplicant(mikeGmail);
 	}

@@ -12,7 +12,7 @@ import utils.WaitlistTestHelper;
 public class ContactTest extends UnitTest {
 
 	private Contact contact;
-	private Address sbHome;
+	private PostalAddress sbHome;
 
 	@Before
 	public void setUp() throws Exception {
@@ -40,9 +40,16 @@ public class ContactTest extends UnitTest {
 	@Test
 	public void contactHasAddress(){
 		Contact contact = Contact.find(BY_ADDRESS, sbHome).first();
-		assertEquals(_3706_AMALFI_WAY, contact.address.address);
-		assertEquals(SANTA_BARBARA, contact.address.city);
-		assertEquals(CA, contact.address.state);
+		
+		String[] expects = {_3706_AMALFI_WAY, SANTA_BARBARA, CA};
+		String[] actuals = {contact.address.address, contact.address.city, contact.address.state};
+		checkFields(expects, actuals);
+		
 		assertEquals(93105, contact.address.zip);
+	}
+
+	private void checkFields(String[] expects, String[] actuals) {
+		for(int i = 0; i < expects.length; i++)
+			assertEquals(expects[i], actuals[i]);
 	}
 }

@@ -15,9 +15,9 @@ public class Contact extends Model {
 	public String phoneNumber;
 	
 	@OneToOne
-	public Address address;
+	public PostalAddress address;
 
-	public Contact(String email, String phoneNumber, Address address) {
+	public Contact(String email, String phoneNumber, PostalAddress address) {
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.address = address;

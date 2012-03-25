@@ -1,7 +1,7 @@
 package utils;
 
 import static org.junit.Assert.*;
-import models.Address;
+import models.PostalAddress;
 import models.Applicant;
 import models.Contact;
 
@@ -28,11 +28,11 @@ public class WaitlistTestHelper {
 		assertEquals(0, count);
 	}
 
-	public static Address createDefaultPostalAddress() {
-		return new Address("3706 Amalfi Way", "Santa Barbara", "CA", 93105).save();
+	public static PostalAddress createDefaultPostalAddress() {
+		return new PostalAddress("3706 Amalfi Way", "Santa Barbara", "CA", 93105).save();
 	}
 
-	public static Contact createDefaultContact(Address address) {
+	public static Contact createDefaultContact(PostalAddress address) {
 		return new Contact("mike.schober@gmail.com", "253-468-4141", address).save();
 	}
 
