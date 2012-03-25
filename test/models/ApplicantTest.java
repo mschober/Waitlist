@@ -25,7 +25,6 @@ public class ApplicantTest extends WLTest {
 		PostalAddress sbHome = createDefaultPostalAddress();
 		mikeGmail = createDefaultContact(sbHome);
 		applicant = createDefaultApplicant(mikeGmail);
-		Fixtures.loadYaml("data.yml");
 	}
 
 	@Test
