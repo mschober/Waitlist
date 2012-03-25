@@ -30,12 +30,12 @@ public class ContactTest extends WLTest {
 	
 	@Test
 	public void contactHasEmail(){
-		assertEquals(MIKE_SCHOBER_GMAIL_COM, findFirstContactByEmail().email);
+		assertEquals(MIKE_SCHOBER_GMAIL_COM, findFirstContactByEmail(contact.email).email);
 	}
 	
 	@Test
 	public void contactHasPhoneNumber(){
-		assertEquals(_253_468_4141, findFirstContactByPhoneNumber().phoneNumber);
+		assertEquals(_253_468_4141, findFirstContactByPhoneNumber(contact.phoneNumber).phoneNumber);
 	}
 	
 	@Test

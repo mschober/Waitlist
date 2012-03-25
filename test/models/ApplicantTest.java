@@ -12,6 +12,7 @@ import org.junit.Test;
 import play.db.jpa.JPABase;
 import play.test.Fixtures;
 import play.test.UnitTest;
+import utils.Lakewood;
 import utils.WaitlistTestHelper;
 
 public class ApplicantTest extends WLTest {
@@ -31,7 +32,7 @@ public class ApplicantTest extends WLTest {
 		assertNotNull(applicant);
 		Applicant found = findByFirstName(MICHAEL);
 		assertEquals(applicant, found);
-		found = Applicant.find(BY_LAST_NAME, SCHOBER).first();
+		found = Lakewood.findFirstApplicantByLastName(SCHOBER);
 		assertEquals(applicant, found);
 		assertEquals(MICHAEL, found.firstName);
 		assertEquals(SCHOBER, found.lastName);
