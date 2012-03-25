@@ -3,7 +3,7 @@
 
 PostalAddress(pa1):
     address: 3706 Amalfi Way
-    city: Santa Barbra
+    city: Santa Barbara
     state: CA
     zip: 93105
 
