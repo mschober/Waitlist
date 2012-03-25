@@ -19,6 +19,9 @@ public class WaitlistTestHelper {
 	public static final String BY_LAST_NAME = "byLastName";
 	public static final String SCHOBER = "Schober";
 	public static final String MICHAEL = "Michael";
+	public static final int CAP_Z = 90;
+	public static final int CAP_A = 65;
+	public static final String LOWERCASE = "lowercase";
 
 	public static void assertOnlyOne(long count) {
 		assertEquals(1, count);
@@ -42,6 +45,14 @@ public class WaitlistTestHelper {
 
 	public static Applicant findByFirstName(String michael) {
 		return Applicant.find(BY_FIRST_NAME, MICHAEL).first();
+	}
+
+	public static boolean isCapitalized(char charAt) {
+		return CAP_A <= charAt && charAt <= CAP_Z;
+	}
+
+	public static boolean isCapitalized(String firstName) {
+		return isCapitalized(firstName.charAt(0));
 	}
 
 }

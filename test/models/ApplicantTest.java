@@ -15,8 +15,6 @@ import utils.WaitlistTestHelper;
 
 public class ApplicantTest extends UnitTest {
 
-	private static final int CAP_Z = 90;
-	private static final int CAP_A = 65;
 	private Applicant applicant;
 	private Contact mikeGmail;
 
@@ -58,17 +56,17 @@ public class ApplicantTest extends UnitTest {
 
 	@Test
 	public void firstNameFirstLetterCapitalized(){
-		assertTrue(isCapitalized(applicant.firstName.charAt(0)));
-		assertTrue(isCapitalized(new Applicant("lowerFirstLetter", "lastname", null).firstName.charAt(0)));
-	}
-	
-	@Test
-	public void lastNameFirstLetterCapitalized(){
-		assertTrue(isCapitalized(applicant.lastName.charAt(0)));
-		assertTrue(isCapitalized(new Applicant("lowerFirstLetter", "lastname", null).lastName.charAt(0)));
+		String firstName = createLowerCaseApplicant().firstName;
+		assertTrue(isCapitalized(firstName));
 	}
 
-	private boolean isCapitalized(char charAt) {
-		return CAP_A <= charAt && charAt <= CAP_Z;
+	@Test
+	public void lastNameFirstLetterCapitalized(){
+		String lastName = createLowerCaseApplicant().lastName;
+		assertTrue(isCapitalized(lastName));
+	}
+	
+	private Applicant createLowerCaseApplicant() {
+		return new Applicant(LOWERCASE, LOWERCASE, null);
 	}
 }
