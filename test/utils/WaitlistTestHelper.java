@@ -61,4 +61,9 @@ public class WaitlistTestHelper {
 		return new Applicant(LOWERCASE, LOWERCASE, null);
 	}
 
+	public static void checkFields(String[] expects, String[] actuals) {
+		for(int i = 0; i < expects.length; i++)
+			assertEquals(expects[i], actuals[i]);
+	}
+
 }
