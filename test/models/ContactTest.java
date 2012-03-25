@@ -39,13 +39,13 @@ public class ContactTest extends UnitTest {
 	
 	@Test
 	public void contactHasAddress(){
-		Contact contact = Contact.find(BY_ADDRESS, sbHome).first();
+		Contact contact = Contact.find(BY_POSTAL_ADDRESS, sbHome).first();
 		
 		String[] expects = {_3706_AMALFI_WAY, SANTA_BARBARA, CA};
-		String[] actuals = {contact.address.address, contact.address.city, contact.address.state};
+		String[] actuals = {contact.postalAddress.address, contact.postalAddress.city, contact.postalAddress.state};
 		checkFields(expects, actuals);
 		
-		assertEquals(93105, contact.address.zip);
+		assertEquals(93105, contact.postalAddress.zip);
 	}
 
 	private void checkFields(String[] expects, String[] actuals) {

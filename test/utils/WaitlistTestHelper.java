@@ -10,7 +10,7 @@ public class WaitlistTestHelper {
 	public static final String CA = "CA";
 	public static final String SANTA_BARBARA = "Santa Barbara";
 	public static final String _3706_AMALFI_WAY = "3706 Amalfi Way";
-	public static final String BY_ADDRESS = "byAddress";
+	public static final String BY_POSTAL_ADDRESS = "byPostalAddress";
 	public static final String _253_468_4141 = "253-468-4141";
 	public static final String BY_PHONE_NUMBER = "byPhoneNumber";
 	public static final String BY_EMAIL = "byEmail";

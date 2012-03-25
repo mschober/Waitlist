@@ -15,12 +15,12 @@ public class Contact extends Model {
 	public String phoneNumber;
 	
 	@OneToOne
-	public PostalAddress address;
+	public PostalAddress postalAddress;
 
 	public Contact(String email, String phoneNumber, PostalAddress address) {
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.address = address;
+        this.postalAddress = address;
 	}
 
 }
