@@ -24,7 +24,7 @@ public class ApplicantTest extends UnitTest {
 	@Before
 	public void setUp() throws Exception {
 		Fixtures.deleteDatabase();
-		mikeGmail = new Contact("mike.schober@gmail.com").save();
+		mikeGmail = new Contact("mike.schober@gmail.com", "253-468-4141").save();
 		applicant = new Applicant(MICHAEL, SCHOBER, mikeGmail).save();
 	}
 

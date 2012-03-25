@@ -11,9 +11,11 @@ import play.db.jpa.Model;
 public class Contact extends Model {
 
 	public String email;
+	public String phoneNumber;
 
-	public Contact(String email) {
+	public Contact(String email, String phoneNumber) {
         this.email = email;
+        this.phoneNumber = phoneNumber;
 	}
 
 }
