@@ -18,9 +18,15 @@ public class Applicant extends Model {
 	public Date date;
 
 	public Applicant(String firstName, String lastName, Contact contact) {
-		this.firstName = firstName;
-		this.lastName = lastName;
+		this.firstName = toCamelCase(firstName);
+		this.lastName = toCamelCase(lastName);
 		this.contact = contact;
 		this.date = new Date();
+	}
+
+	private String toCamelCase(String name) {
+		String endOfName = name.toLowerCase().substring(1);
+		String firstLetter = String.valueOf(name.charAt(0)).toUpperCase();
+		return firstLetter.concat(endOfName);
 	}
 }
