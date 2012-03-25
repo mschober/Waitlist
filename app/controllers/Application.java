@@ -5,6 +5,7 @@ import play.data.validation.Required;
 import play.mvc.*;
 import utils.EmailValidator;
 import utils.Lakewood;
+import utils.PhoneNumberValidator;
 import utils.SimpleEmailValidator;
 
 import java.util.*;
@@ -28,9 +29,10 @@ public class Application extends Controller {
 			@Required String state, @Required int zip) {
 		if (validation.hasErrors())
 			System.out.println("failed required parameters");
-		else if (!SimpleEmailValidator.validate(email)){
+		else if (!SimpleEmailValidator.validate(email))
 			System.out.println("invalid email address for: " + email);
-		}
+		else if (!PhoneNumberValidator.validate(phoneNumber))
+			System.out.println("invalid phone number for: " + phoneNumber);
 		else {
 			PostalAddress address = new PostalAddress(postalAddress, city, state, zip).save();
 			Contact contact = new Contact(email, phoneNumber, address).save();
