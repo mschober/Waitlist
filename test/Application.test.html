@@ -1,5 +1,7 @@
 *{ You can use plain selenium command using the selenium tag }*
 
+#{fixture load:'data.yml' /}
+
 #{selenium}
     // Open the home page, and check that no error occured
     open('/')
@@ -16,7 +18,5 @@
     assertTextPresent('Michael')
     assertTextPresent('Kurstyn')
     assertTextPresent('Chris')
-    assertTextPresent('1')
-    assertTextPresent('2')
-    assertTextPresent('3')    
+	verifyText('//table[@id='applicants']//tr[2]/td[7]', '2534684141')
 #{/selenium}
