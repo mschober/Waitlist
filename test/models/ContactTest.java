@@ -1,11 +1,13 @@
 package models;
 
 import static org.junit.Assert.*;
+import static utils.WaitlistTestHelper.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import play.test.UnitTest;
+import utils.WaitlistTestHelper;
 
 public class ContactTest extends UnitTest {
 
@@ -14,11 +16,8 @@ public class ContactTest extends UnitTest {
 
 	@Before
 	public void setUp() throws Exception {
-		sbHome = new Address("3706 Amalfi Way", "Santa Barbara", "CA", 93105);
-		sbHome.save();
-		
-		contact = new Contact("jennie.schober@gmail.com", "253-350-0220", sbHome);
-		contact.save();
+		sbHome = createDefaultPostalAddress();
+		contact = createDefaultContact(sbHome);
 	}
 
 	@Test
@@ -28,22 +27,22 @@ public class ContactTest extends UnitTest {
 	
 	@Test
 	public void contactHasEmail(){
-		Contact found = Contact.find("byEmail", "jennie.schober@gmail.com").first();
-		assertEquals("jennie.schober@gmail.com", found.email);
+		Contact found = Contact.find(BY_EMAIL, MIKE_SCHOBER_GMAIL_COM).first();
+		assertEquals(MIKE_SCHOBER_GMAIL_COM, found.email);
 	}
 	
 	@Test
 	public void contactHasPhoneNumber(){
-		Contact found = Contact.find("byPhoneNumber", "253-350-0220").first();
-		assertEquals("253-350-0220", found.phoneNumber);
+		Contact found = Contact.find(BY_PHONE_NUMBER, _253_468_4141).first();
+		assertEquals(_253_468_4141, found.phoneNumber);
 	}
 	
 	@Test
 	public void contactHasAddress(){
-		Contact contact = Contact.find("byAddress", sbHome).first();
-		assertEquals("3706 Amalfi Way", contact.address.address);
-		assertEquals("Santa Barbara", contact.address.city);
-		assertEquals("CA", contact.address.state);
+		Contact contact = Contact.find(BY_ADDRESS, sbHome).first();
+		assertEquals(_3706_AMALFI_WAY, contact.address.address);
+		assertEquals(SANTA_BARBARA, contact.address.city);
+		assertEquals(CA, contact.address.state);
 		assertEquals(93105, contact.address.zip);
 	}
 }

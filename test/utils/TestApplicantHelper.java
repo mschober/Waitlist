@@ -1,5 +1,8 @@
 package utils;
 
+import org.junit.rules.TestWatchman;
+
+import models.Address;
 import models.Applicant;
 
 public class TestApplicantHelper {

@@ -24,9 +24,9 @@ public class ApplicantTest extends UnitTest {
 	@Before
 	public void setUp() throws Exception {
 		Fixtures.deleteDatabase();
-		Address sbHome = new Address("3706 Amalfi Way", "Santa Barbara", "CA", 93105).save();
-		mikeGmail = new Contact("mike.schober@gmail.com", "253-468-4141", sbHome).save();
-		applicant = new Applicant(MICHAEL, SCHOBER, mikeGmail).save();
+		Address sbHome = WaitlistTestHelper.createDefaultPostalAddress();
+		mikeGmail = WaitlistTestHelper.createDefaultContact(sbHome);
+		applicant = WaitlistTestHelper.createDefaultApplicant(mikeGmail);
 	}
 
 	@Test
