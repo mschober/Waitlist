@@ -9,7 +9,7 @@ import play.test.UnitTest;
 import utils.WaitlistTestHelper;
 import wl.WLTest;
 
-public class AddressTest extends WLTest {
+public class PostalAddressTest extends WLTest {
 	
 	private PostalAddress address;
 
