@@ -1,7 +1,5 @@
 package utils;
 
-import static utils.WaitlistTestHelper.*;
-
 import java.util.List;
 
 import models.Applicant;
@@ -11,6 +9,11 @@ import models.PostalAddress;
 public class Lakewood {
 
 	public static final String ALL_BY_ID = "id >= ? order by id asc";
+	public static final String BY_PHONE_NUMBER = "byPhoneNumber";
+	public static final String BY_EMAIL = "byEmail";
+	public static final String BY_POSTAL_ADDRESS = "byPostalAddress";
+	public static final String BY_LAST_NAME = "byLastName";
+	public static final String BY_FIRST_NAME = "byFirstName";
 
 	public static Contact findFirstContactByPhoneNumber(String number) {
 		return Contact.find(BY_PHONE_NUMBER, number).first();

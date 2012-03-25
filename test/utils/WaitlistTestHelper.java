@@ -2,6 +2,9 @@ package utils;
 
 import static org.junit.Assert.*;
 import static utils.WaitlistTestHelper.LOWERCASE;
+import static utils.Lakewood.*;
+
+
 import models.PostalAddress;
 import models.Applicant;
 import models.Contact;
@@ -11,13 +14,8 @@ public class WaitlistTestHelper {
 	public static final String CA = "CA";
 	public static final String SANTA_BARBARA = "Santa Barbara";
 	public static final String _3706_AMALFI_WAY = "3706 Amalfi Way";
-	public static final String BY_POSTAL_ADDRESS = "byPostalAddress";
 	public static final String _253_468_4141 = "253-468-4141";
-	public static final String BY_PHONE_NUMBER = "byPhoneNumber";
-	public static final String BY_EMAIL = "byEmail";
 	public static final String MIKE_SCHOBER_GMAIL_COM = "mike.schober@gmail.com";
-	public static final String BY_FIRST_NAME = "byFirstName";
-	public static final String BY_LAST_NAME = "byLastName";
 	public static final String SCHOBER = "Schober";
 	public static final String MICHAEL = "Michael";
 	public static final int CAP_Z = 90;
