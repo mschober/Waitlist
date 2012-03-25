@@ -1,17 +1,18 @@
+
 import play.*;
 import play.jobs.*;
 import play.test.*;
  
 import models.*;
  
-/*@OnApplicationStart
+@OnApplicationStart
 public class Bootstrap extends Job {
  
     public void doJob() {
         // Check if the database is empty
         if(Applicant.count() == 0) {
-            Fixtures.load("initial-applicants.yml");
+            Fixtures.loadModels("initial-applicants.yml");
         }
     }
  
-}*/
+}

@@ -1,14 +1,28 @@
 # Test data
 
-Applicant(michael):
-    firstName:          Michael
-    lastName:           Schober
-    address:            3706 Amalfi Way Apt. B Santa Barbara, CA 93105
-    phoneNumber:        (253)468-4141
+
+PostalAddress(pa1):
+    address: 3706 Amalfi Way
+    city: Santa Barbra
+    state: CA
+    zip: 93105
+
+Contact(c1):
+    email: mike.schober@gmail.com
+    phoneNumber: 253-468-4141
+    postalAddress: pa1
+
+Applicant(mike):
+    firstName: Michael
+    lastName: Schober
+    contact: c1
     
-Applicant(jennie):
-    firstName:          Jennie
-    lastName:           Schober
-    address:            3706 Amalfi Way Apt. B Santa Barbara, CA 93105
-    phoneNumber:        (253)350-0220
-   
+Applicant(kurstyn):
+    firstName: Kurstyn
+    lastName: Schober
+    contact: c1
+    
+Applicant(chris):
+    firstName: Chris
+    lastName: Schober
+    contact: c1

@@ -21,3 +21,13 @@ Applicant(mike):
     firstName: Michael
     lastName: Schober
     contact: c1
+    
+Applicant(kurstyn):
+    firstName: Kurstyn
+    lastName: Schober
+    contact: c1
+    
+Applicant(chris):
+    firstName: Chris
+    lastName: Schober
+    contact: c1
