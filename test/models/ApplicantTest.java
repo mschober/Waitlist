@@ -2,7 +2,6 @@ package models;
 
 import static org.junit.Assert.*;
 import static utils.WaitlistTestHelper.*;
-import static utils.TestApplicantHelper.*;
 
 import java.util.Date;
 
@@ -12,7 +11,6 @@ import org.junit.Test;
 import play.db.jpa.JPABase;
 import play.test.Fixtures;
 import play.test.UnitTest;
-import utils.TestApplicantHelper;
 import utils.WaitlistTestHelper;
 
 public class ApplicantTest extends UnitTest {

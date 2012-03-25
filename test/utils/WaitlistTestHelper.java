@@ -1,8 +1,6 @@
 package utils;
 
 import static org.junit.Assert.*;
-import static utils.TestApplicantHelper.MICHAEL;
-import static utils.TestApplicantHelper.SCHOBER;
 import models.Address;
 import models.Applicant;
 import models.Contact;
@@ -17,6 +15,10 @@ public class WaitlistTestHelper {
 	public static final String BY_PHONE_NUMBER = "byPhoneNumber";
 	public static final String BY_EMAIL = "byEmail";
 	public static final String MIKE_SCHOBER_GMAIL_COM = "mike.schober@gmail.com";
+	public static final String BY_FIRST_NAME = "byFirstName";
+	public static final String BY_LAST_NAME = "byLastName";
+	public static final String SCHOBER = "Schober";
+	public static final String MICHAEL = "Michael";
 
 	public static void assertOnlyOne(long count) {
 		assertEquals(1, count);
@@ -36,6 +38,10 @@ public class WaitlistTestHelper {
 
 	public static Applicant createDefaultApplicant(Contact mikeGmail) {
 		return new Applicant(MICHAEL, SCHOBER, mikeGmail).save();
+	}
+
+	public static Applicant findByFirstName(String michael) {
+		return Applicant.find(BY_FIRST_NAME, MICHAEL).first();
 	}
 
 }
