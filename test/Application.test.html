@@ -6,8 +6,7 @@
     // Open the home page, and check that no error occured
     open('/')
  
-    assertHeaderTitle('Home');
-    
+ 	assertTitle('Home')
     assertTextPresent('First name:')
     assertTextPresent('Last name:')
     assertTextPresent('Email address:')
@@ -17,13 +16,17 @@
     assertTextPresent('State:')
     assertTextPresent('Zip:')
     
-    
+    clickAndWait('que')
+    assertTitle('Que')
+
     open('/que')
-    
-    assertHeaderTitle('Que');
+    assertTitle('Que')
     #verifyText('/TABLE[@name='applicants']//TR/TD[1]', 'Login')
     assertTextPresent('Michael')
     assertTextPresent('Kurstyn')
     assertTextPresent('Chris')
 	verifyText('//table[@id='applicants']//tr[2]/td[7]', '253-468-4141')
+	
+	clickAndWait('apply-form')
+	assertTitle('Home')
 #{/selenium}
