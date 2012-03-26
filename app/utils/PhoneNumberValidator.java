@@ -1,5 +1,6 @@
 package utils;
 
+
 public class PhoneNumberValidator {
 
 	private static final int NINE = 57;
@@ -20,15 +21,12 @@ public class PhoneNumberValidator {
 	private static boolean isAllNumbers(String phoneNumber) {
 		boolean is = true;
 		for (char c : phoneNumber.toCharArray())
-			is &= ZERO <= c && c <= NINE;
+			is &= isANumber(c);
 		return is;
 	}
 
-	public static String formatWithDashes(String phoneNumber2) {
-		String areaCode = phoneNumber2.substring(0, 3);
-		String preFix = phoneNumber2.substring(3, 6);
-		String lineNumber = phoneNumber2.substring(6);
-		return areaCode + "-" + preFix + "-" + lineNumber;
+	public static boolean isANumber(char c) {
+		return ZERO <= c && c <= NINE;
 	}
 
 }

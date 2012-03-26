@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import models.contact.PhoneNumber;
+
 import play.db.jpa.Model;
 import utils.PhoneNumberValidator;
 
@@ -20,7 +22,7 @@ public class Contact extends Model {
 
 	public Contact(String email, String phoneNumber, PostalAddress address) {
         this.email = email;
-        this.phoneNumber = PhoneNumberValidator.formatWithDashes(phoneNumber);
+        this.phoneNumber = new PhoneNumber(phoneNumber).toString();
         this.postalAddress = address;
 	}
 
