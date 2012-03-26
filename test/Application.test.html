@@ -6,10 +6,17 @@
     // Open the home page, and check that no error occured
     open('/')
  
-     assertHeaderTitle('Home');
-    // Check that the front post is present
+    assertHeaderTitle('Home');
+    
     assertTextPresent('First name:')
     assertTextPresent('Last name:')
+    assertTextPresent('Email address:')
+    assertTextPresent('Phone number:')
+    assertTextPresent('Address:')
+    assertTextPresent('City:')
+    assertTextPresent('State:')
+    assertTextPresent('Zip:')
+    
     
     open('/que')
     
