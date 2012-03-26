@@ -9,7 +9,7 @@ PostalAddress(pa1):
 
 Contact(c1):
     email: mike.schober@gmail.com
-    phoneNumber: 2534684141
+    phoneNumber: 253-468-4141
     postalAddress: pa1
 
 Applicant(mike):

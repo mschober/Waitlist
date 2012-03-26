@@ -3,9 +3,10 @@ package utils;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
-public class SimpleEmailValidator {
+public class SimpleEmailValidator implements EmailValidator {
 	
-	  public static boolean validate(final String hex){
+	@Override
+	  public boolean validate(String hex){
 		  try {
 			  new InternetAddress(hex).validate();
 		  } catch (AddressException e) {

@@ -3,7 +3,7 @@ package controllers;
 import play.*;
 import play.data.validation.Required;
 import play.mvc.*;
-import utils.EmailValidator;
+import utils.RegexEmailValidator;
 import utils.Lakewood;
 import utils.PhoneNumberValidator;
 import utils.SimpleEmailValidator;
@@ -29,7 +29,7 @@ public class Application extends Controller {
 			@Required String state, @Required int zip) {
 		if (validation.hasErrors())
 			System.out.println("failed required parameters");
-		else if (!SimpleEmailValidator.validate(email))
+		else if (!new SimpleEmailValidator().validate(email))
 			System.out.println("invalid email address for: " + email);
 		else if (!PhoneNumberValidator.validate(phoneNumber))
 			System.out.println("invalid phone number for: " + phoneNumber);

@@ -7,49 +7,43 @@ import wl.WLTest;
 
 public class EmailTest extends WLTest {
 
-	@Before
-	public void setUp() throws Exception {
-	}
+	private static final String[] expectedTrue = {
+		"___.______@gmail.com",
+		"----.----@gmail.com",
+		"mike.schober@gmail.com",
+		"mike.schober.will.smith.whatever.whatever.123412.23412@gmail.com",
+		"myemail@mike.schober.will.smith.whatever.whatever.123412.23412.com",
+		"mike.schober@gmail.com.ab.cd.ef.gh.ij.kl",
+		"mike.schober@gmail.commasdfsdafasfea",
+		"mike.schober@1234.com",
+		"mike.schober@gmail.123assdfaeaw.com",
+		"a@b.com"
+	};
+	private static final String[] expectedFalse = {
+		")(mike.schober@gmail.com",
+		"mike.schober@)(gmail.com",
+		"mike.schober@gmail.)(com"
+	};
 
 	@Test
 	public void isValid() {
-		assertTrue(EmailValidator.validate("___.______@gmail.com"));
-		assertTrue(EmailValidator.validate("----.----@gmail.com"));
-		assertTrue(EmailValidator.validate("mike.schober@gmail.com"));
-
-		assertTrue(EmailValidator.validate("mike.schober.will.smith.whatever.whatever.123412.23412@gmail.com"));
-		assertTrue(EmailValidator.validate("myemail@mike.schober.will.smith.whatever.whatever.123412.23412.com"));
-		assertTrue(EmailValidator.validate("mike.schober@gmail.com.ab.cd.ef.gh.ij.kl"));
-		assertTrue(EmailValidator.validate("mike.schober@gmail.commasdfsdafasfea"));
-		assertTrue(EmailValidator.validate("mike.schober@1234.com"));
-		assertTrue(EmailValidator.validate("mike.schober@gmail.123assdfaeaw.com"));
-		assertTrue(EmailValidator.validate("a@b.com"));
-
-
-		assertFalse(EmailValidator.validate("~mike.schober@gmail.com"));
-		assertFalse(EmailValidator.validate("mike.schober@~gmail.com"));
-		assertFalse(EmailValidator.validate("mike.schober@gmail.~com"));
+		assertTrue(expectedTrue, new RegexEmailValidator());
+		assertFalse(expectedFalse, new RegexEmailValidator());
 	}
-	
+
 	@Test
 	public void isSimplyValid() {
-	assertTrue(SimpleEmailValidator.validate("___.______@gmail.com"));
-	assertTrue(SimpleEmailValidator.validate("----.----@gmail.com"));
-	assertTrue(SimpleEmailValidator.validate("mike.schober@gmail.com"));
-
-	assertTrue(SimpleEmailValidator.validate("mike.schober.will.smith.whatever.whatever.123412.23412@gmail.com"));
-	assertTrue(SimpleEmailValidator.validate("myemail@mike.schober.will.smith.whatever.whatever.123412.23412.com"));
-	assertTrue(SimpleEmailValidator.validate("mike.schober@gmail.com.ab.cd.ef.gh.ij.kl"));
-	assertTrue(SimpleEmailValidator.validate("mike.schober@gmail.commasdfsdafasfea"));
-	assertTrue(SimpleEmailValidator.validate("mike.schober@1234.com"));
-	assertTrue(SimpleEmailValidator.validate("mike.schober@gmail.123assdfaeaw.com"));
-	assertTrue(SimpleEmailValidator.validate("a@b.com"));
-
-
-	assertFalse(SimpleEmailValidator.validate("~^(*&^(mike.schober@gmail.com"));
-	assertFalse(SimpleEmailValidator.validate("mike.schober@~^(*&^(gmail.com"));
-	assertFalse(SimpleEmailValidator.validate("mike.schober@gmail.~^(*&^(com"));
+		assertTrue(expectedTrue, new SimpleEmailValidator());
+		assertFalse(expectedFalse, new SimpleEmailValidator());
 	}
 	
-
+	private void assertFalse(String[] expectedFalse, EmailValidator validator) {
+		for(String emailAddress: expectedFalse)
+			assertFalse("Failed: " + emailAddress, validator.validate(emailAddress));
+	}
+	
+	private void assertTrue(String[] expectedTrue, EmailValidator validator) {
+		for(String emailAddress: expectedTrue)
+			assertTrue("Failed: " + emailAddress, validator.validate(emailAddress));
+	}
 }
