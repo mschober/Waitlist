@@ -25,5 +25,4 @@ public class Contact extends Model {
         this.phoneNumber = new PhoneNumber(phoneNumber).toString();
         this.postalAddress = address;
 	}
-
 }

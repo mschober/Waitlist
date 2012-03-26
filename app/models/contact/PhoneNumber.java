@@ -37,5 +37,4 @@ public class PhoneNumber {
 		String lineNumber = phoneNumber2.substring(6);
 		return areaCode + "-" + preFix + "-" + lineNumber;
 	}
-
 }

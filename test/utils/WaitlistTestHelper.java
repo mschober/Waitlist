@@ -14,7 +14,7 @@ public class WaitlistTestHelper {
 	public static final String CA = "CA";
 	public static final String SANTA_BARBARA = "Santa Barbara";
 	public static final String _3706_AMALFI_WAY = "3706 Amalfi Way";
-	public static final String _253_468_4141 = "2534684141";
+	public static final String _253_468_4141 = "253-468-4141";
 	public static final String MIKE_SCHOBER_GMAIL_COM = "mike.schober@gmail.com";
 	public static final String SCHOBER = "Schober";
 	public static final String MICHAEL = "Michael";
