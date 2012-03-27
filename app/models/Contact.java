@@ -1,5 +1,6 @@
 package models;
 
+import play.data.validation.Email;
 import play.db.jpa.Model;
 
 import javax.persistence.Entity;
@@ -14,6 +15,7 @@ import utils.PhoneNumberValidator;
 @Entity
 public class Contact extends Model {
 
+	@Email
 	public String email;
 	public String phoneNumber;
 	

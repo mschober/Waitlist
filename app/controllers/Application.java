@@ -1,17 +1,18 @@
 package controllers;
 
-import play.*;
-import play.data.validation.Required;
-import play.mvc.*;
-import utils.RegexEmailValidator;
-import utils.Lakewood;
-import utils.PhoneNumberValidator;
-import utils.SimpleEmailValidator;
+import java.util.List;
 
-import java.util.*;
-
-import models.*;
+import models.Applicant;
+import models.Contact;
+import models.PostalAddress;
 import models.contact.PhoneNumber;
+import play.data.validation.Email;
+import play.data.validation.Phone;
+import play.data.validation.Required;
+
+import play.mvc.Controller;
+import utils.Lakewood;
+import utils.SimpleEmailValidator;
 
 public class Application extends Controller {
 
@@ -24,13 +25,30 @@ public class Application extends Controller {
 		render(applicants);
 	}
 
-	public static void post(@Required String fname, @Required String lname,
-			@Required String email, @Required String phoneNumber,
-			@Required String postalAddress, @Required String city,
-			@Required String state, @Required int zip) {
+	public static void post(
+			@Required String fname, 
+			@Required String lname,
+
+			@Required 
+			@Email 
+			String email, 
+			
+			@Required 
+			@Phone 
+			String phoneNumber,
+			
+			@Required String postalAddress, 
+			@Required String city,
+			@Required String state, 
+			@Required int zip) {
 		PhoneNumber number = new PhoneNumber(phoneNumber);
-		if (validation.hasErrors())
-			System.out.println("failed required parameters");
+		if (validation.hasErrors()){
+			params.flash();
+			validation.keep();
+			for(play.data.validation.Error error: validation.errors()){
+				System.out.println(error);
+			}
+		}
 		else if (!new SimpleEmailValidator().validate(email))
 			System.out.println("invalid email address for: " + email);
 		else if (!number.isValid())

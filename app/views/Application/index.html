@@ -5,38 +5,48 @@
     #{form @Application.post()}
         <p>
             <label for="fname">First name: </label>
-            <input type="text" name="fname" id="fname" placeholder="Enter…"/>
+            <input type="text" name="fname" id="fname" value="${flash.fname}" placeholder="Enter…"/>
         </p>
         <p>
             <label for="lname">Last name: </label>
-            <input type="text" name="lname" id="lname" placeholder="Enter…"/>
+            <input type="text" name="lname" id="lname" value="${flash.lname}" placeholder="Enter…"/>
         </p>
         <p>
             <label for="email">Email address: </label>
-            <input type="text" name="email" id="email" placeholder="Enter…"/>
+            <input class="control-group error" type="text" name="email" id="email" value="${flash.email}" placeholder="Enter…"/>
+            <span class="error">#{error 'email' /}</span>
         </p>
         <p>
             <label for="phoneNumber">Phone number: </label>
-            <input type="text" name="phoneNumber" id="phoneNumber" placeholder="Enter…"/>
+            <input type="text" name="phoneNumber" id="phoneNumber" value="${flash.phoneNumber}" placeholder="Enter…"/>
+            <span class="error">#{error 'phoneNumber' /}</span>
         </p>
         <p>
             <label for="postalAddress">Address: </label>
-            <input type="text" name="postalAddress" id="postalAddress" placeholder="Enter…"/>
+            <input type="text" name="postalAddress" id="postalAddress" value="${flash.postalAddress}" placeholder="Enter…"/>
         </p>
         <p>
             <label for="city">City: </label>
-            <input type="text" name="city" id="city" placeholder="Enter…"/>
+            <input type="text" name="city" id="city" value="${flash.city}" placeholder="Enter…"/>
         </p>
         <p>
             <label for="state">State: </label>
-            <input type="text" name="state" id="state" placeholder="Enter…"/>
+            <input type="text" name="state" id="state" value="${flash.state}" placeholder="Enter…"/>
         </p>
         <p>
             <label for="zip">Zip: </label>
-            <input type="text" name="zip" id="zip" placeholder="Enter…"/>
+            <input type="text" name="zip" id="zip" value="${flash.zip}" placeholder="Enter…"/>
         </p>
         <p>
             <input type="submit" class="btn btn-primary" value="Submit" />
             <a class="btn" id="que" href="/que">View Que</a>
     #{/form}
+    #{ifErrors}
+        <h1>Oops Errors!</h1>
+        #{errors}
+            <li>${error}</li>
+        #{/errors}
+
+
+    #{/ifErrors}
 </div>

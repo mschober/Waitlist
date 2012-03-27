@@ -29,6 +29,13 @@ public class ContactTest extends WLTest {
 	}
 	
 	@Test
+	public void mustHaveValidEmail(){
+		String invalidEmail = "mike.schober&%*&^*&^";
+		Contact badContact = new Contact(invalidEmail, "1234567890", sbHome);
+		assertNotNull(badContact);
+	}
+	
+	@Test
 	public void contactHasEmail(){
 		assertEquals(MIKE_SCHOBER_GMAIL_COM, findFirstContactByEmail(contact.email).email);
 	}
