@@ -43,7 +43,7 @@ public class Application extends Controller {
 			@Required String state, 
 			
 			@Required 
-			@Range(min=0, max=9999)
+			@Range(min=0, max=99999)
 			int zip) {
 		PhoneNumber number = new PhoneNumber(phoneNumber);
 		if (validation.hasErrors()){
