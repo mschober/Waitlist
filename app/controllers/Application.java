@@ -2,24 +2,17 @@ package controllers;
 
 import java.util.List;
 
-import net.sf.oval.constraint.Size;
-
 import models.Applicant;
 import models.Contact;
 import models.PostalAddress;
 import models.contact.PhoneNumber;
-import play.data.validation.Email;
-import play.data.validation.Match;
-import play.data.validation.MaxSize;
-import play.data.validation.MinSize;
-//import play.data.validation.Phone;
+//import play.data.validation.Email;
 import play.data.validation.Range;
 import play.data.validation.Required;
-
 import play.mvc.Controller;
 import utils.Lakewood;
 import utils.SimpleEmailValidator;
-import utils.data.validation.DoesntStartWith;
+import utils.data.validation.Email;
 import utils.data.validation.Phone;
 
 public class Application extends Controller {
@@ -48,7 +41,10 @@ public class Application extends Controller {
 			@Required String postalAddress, 
 			@Required String city,
 			@Required String state, 
-			@Required int zip) {
+			
+			@Required 
+			@Range(min=0, max=9999)
+			int zip) {
 		PhoneNumber number = new PhoneNumber(phoneNumber);
 		if (validation.hasErrors()){
 			params.flash();

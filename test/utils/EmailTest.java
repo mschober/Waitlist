@@ -1,8 +1,8 @@
 package utils;
 
-import org.junit.Before;
 import org.junit.Test;
 
+import utils.data.validation.EmailCheck;
 import wl.WLTest;
 
 public class EmailTest extends WLTest {
@@ -39,11 +39,11 @@ public class EmailTest extends WLTest {
 	
 	private void assertFalse(String[] expectedFalse, EmailValidator validator) {
 		for(String emailAddress: expectedFalse)
-			assertFalse("Failed: " + emailAddress, validator.validate(emailAddress));
+			assertFalse("Failed: " + emailAddress, EmailCheck.validate(emailAddress));
 	}
 	
 	private void assertTrue(String[] expectedTrue, EmailValidator validator) {
 		for(String emailAddress: expectedTrue)
-			assertTrue("Failed: " + emailAddress, validator.validate(emailAddress));
+			assertTrue("Failed: " + emailAddress, EmailCheck.validate(emailAddress));
 	}
 }

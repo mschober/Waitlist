@@ -1,6 +1,5 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
-#{hello /}
 <div class="well">
     #{form @Application.post()}
         <p>
@@ -38,6 +37,7 @@
         <p>
             <label for="zip">Zip: </label>
             <input type="text" name="zip" value="${flash.zip}" placeholder="Enter…"/>
+            <span class="error">#{error 'zip' /}</span>
         </p>
         <p>
             <input type="submit" class="btn btn-primary" value="Submit" />
