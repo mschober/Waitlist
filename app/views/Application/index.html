@@ -6,10 +6,12 @@
         <p>
             <label for="fname">First name: </label>
             <input type="text" name="fname" id="fname" value="${flash.fname}" placeholder="Enter…"/>
+            <span class="error">#{error 'fname' /}</span>
         </p>
         <p>
             <label for="lname">Last name: </label>
             <input type="text" name="lname" id="lname" value="${flash.lname}" placeholder="Enter…"/>
+            <span class="error">#{error 'lname' /}</span>
         </p>
         <p>
             <label for="email">Email address: </label>
@@ -41,12 +43,4 @@
             <input type="submit" class="btn btn-primary" value="Submit" />
             <a class="btn" id="que" href="/que">View Que</a>
     #{/form}
-    #{ifErrors}
-        <h1>Oops Errors!</h1>
-        #{errors}
-            <li>${error}</li>
-        #{/errors}
-
-
-    #{/ifErrors}
 </div>
