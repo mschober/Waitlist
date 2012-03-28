@@ -1,5 +1,7 @@
 package utils;
 
+import java.util.regex.Pattern;
+
 
 public class PhoneNumberValidator {
 
@@ -7,22 +9,15 @@ public class PhoneNumberValidator {
 	private static final int ZERO = 48;
 
 	public static boolean validate(String phoneNumber) {
-		return isAllNumbers(phoneNumber) && isTenDigits(phoneNumber) && doesNotStartWithZero(phoneNumber);
+		return isAllNumbers(phoneNumber) && doesNotStartWithZero(phoneNumber);
 	}
 
 	private static boolean doesNotStartWithZero(String phoneNumber) {
 		return !(phoneNumber.charAt(0) == ZERO);
 	}
 
-	private static boolean isTenDigits(String phoneNumber) {
-		return phoneNumber.length() == 10;
-	}
-
 	private static boolean isAllNumbers(String phoneNumber) {
-		boolean is = true;
-		for (char c : phoneNumber.toCharArray())
-			is &= isANumber(c);
-		return is;
+		return Pattern.matches("[0-9]{10}", phoneNumber);
 	}
 
 	public static boolean isANumber(char c) {
