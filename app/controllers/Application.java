@@ -45,9 +45,6 @@ public class Application extends Controller {
 		if (validation.hasErrors()){
 			params.flash();
 			validation.keep();
-			for(play.data.validation.Error error: validation.errors()){
-				System.out.println(error);
-			}
 		}
 		else if (!new SimpleEmailValidator().validate(email))
 			System.out.println("invalid email address for: " + email);

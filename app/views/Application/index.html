@@ -1,21 +1,21 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
-
+#{hello /}
 <div class="well">
     #{form @Application.post()}
         <p>
             <label for="fname">First name: </label>
-            <input type="text" name="fname" id="fname" value="${flash.fname}" placeholder="Enter…"/>
+            <input type="text" name="fname" value="${flash.fname}" placeholder="Enter…"/>
             <span class="error">#{error 'fname' /}</span>
         </p>
         <p>
             <label for="lname">Last name: </label>
-            <input type="text" name="lname" id="lname" value="${flash.lname}" placeholder="Enter…"/>
+            <input type="text" name="lname" value="${flash.lname}" placeholder="Enter…"/>
             <span class="error">#{error 'lname' /}</span>
         </p>
         <p>
             <label for="email">Email address: </label>
-            <input class="control-group error" type="text" name="email" id="email" value="${flash.email}" placeholder="Enter…"/>
+            <input class="control-group error" type="text" name="email" value="${flash.email}" placeholder="Enter…"/>
             <span class="error">#{error 'email' /}</span>
         </p>
         <p>
@@ -29,18 +29,18 @@
         </p>
         <p>
             <label for="city">City: </label>
-            <input type="text" name="city" id="city" value="${flash.city}" placeholder="Enter…"/>
+            <input type="text" name="city" value="${flash.city}" placeholder="Enter…"/>
         </p>
         <p>
             <label for="state">State: </label>
-            <input type="text" name="state" id="state" value="${flash.state}" placeholder="Enter…"/>
+            <input type="text" name="state" value="${flash.state}" placeholder="Enter…"/>
         </p>
         <p>
             <label for="zip">Zip: </label>
-            <input type="text" name="zip" id="zip" value="${flash.zip}" placeholder="Enter…"/>
+            <input type="text" name="zip" value="${flash.zip}" placeholder="Enter…"/>
         </p>
         <p>
             <input type="submit" class="btn btn-primary" value="Submit" />
-            <a class="btn" id="que" href="/que">View Que</a>
+            <a class="btn" href="/que">View Que</a>
     #{/form}
 </div>
