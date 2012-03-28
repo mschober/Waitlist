@@ -2,6 +2,8 @@ package utils.data.validation;
 
 import java.util.regex.Pattern;
 
+import utils.PhoneNumberValidator;
+
 import net.sf.oval.Validator;
 import net.sf.oval.configuration.annotation.AbstractAnnotationCheck;
 import net.sf.oval.context.OValContext;
@@ -29,7 +31,28 @@ public class PhoneCheck extends AbstractAnnotationCheck<Phone> {
         if (value == null || value.toString().length() == 0) {
             return true;
         }
-        return phonePattern.matcher(value.toString()).matches();
+        return phonePattern.matcher(value.toString()).matches() && isTenDigits(value.toString());
     }
+
+	private boolean isTenDigits(String phoneNumber) {
+		int countNumbers = countNumbers(phoneNumber);
+		if(countNumbers == 10){
+			return true;
+		}
+		setMessage("Length must be 10 not " + countNumbers);
+		return false;
+	}
+
+	private int countNumbers(String string) {
+		int numbers = 0;
+		for(char c: string.toCharArray())
+			if(PhoneNumberValidator.isANumber(c))
+				numbers++;
+		return numbers;
+	}
+
+	public static boolean validate(String phoneNumber) {
+		return phonePattern.matcher(phoneNumber).matches();
+	}
 
 }

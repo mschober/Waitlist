@@ -6,31 +6,27 @@ import models.contact.PhoneNumber;
 import org.junit.Before;
 import org.junit.Test;
 
+import play.Play;
+import play.data.validation.Validation;
+
 import sun.awt.image.PNGImageDecoder.PNGException;
+import utils.data.validation.Phone;
+import utils.data.validation.PhoneCheck;
 
 import wl.WLTest;
 
 public class PhoneNumberTest extends WLTest {
 	
-	private PhoneNumber phoneNumber;
-	
-	@Before
-	public void setup(){
-		phoneNumber = new PhoneNumber("(253)4684141");
-	}
-
 	@Test
 	public void isValid(){
-		assertTrue(PhoneNumberValidator.validate("2534684141"));
-		assertFalse(PhoneNumberValidator.validate("adfa"));
-		assertFalse(PhoneNumberValidator.validate("01234567890"));
-		assertFalse(PhoneNumberValidator.validate("0123456789"));
+		assertTrue(PhoneCheck.validate("253 468 4141"));
+		assertTrue(PhoneCheck.validate("253-468-4141"));
+		assertTrue(PhoneCheck.validate("(253)468-4141"));
+		assertTrue(PhoneCheck.validate("253.468.4141"));
+		assertTrue(PhoneCheck.validate("2534684141"));
+
+		assertFalse(PhoneCheck.validate("adfa"));
+		assertFalse(PhoneCheck.validate("01234567890"));
+//		assertFalse(Play.configuration.getProperty("validation.phone"), PhoneCheck.validate("253 468 414"));
 	}
-	
-	@Test
-	public void canEnterWithParens(){
-		assertTrue("Failed: " + phoneNumber, phoneNumber.isValid());
-		assertEquals("253-468-4141", phoneNumber.toString());
-	}
-	
 }
