@@ -9,6 +9,7 @@ import org.junit.Test;
 import play.db.jpa.GenericModel.JPAQuery;
 import play.test.Fixtures;
 import play.test.UnitTest;
+import utils.WaitlistTestHelper;
 
 public class BoatTest extends UnitTest {
 
