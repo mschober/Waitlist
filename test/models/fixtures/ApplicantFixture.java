@@ -28,14 +28,14 @@ public class ApplicantFixture extends WLFixture {
 	
 	@Test
 	public void countsMatch(){
-		assertThree(Applicant.count());
-		assertThree(findAllApplicantsBy(ALL_BY_ID).size());
+		assertFour(Applicant.count());
+		assertFour(findAllApplicantsBy(ALL_BY_ID).size());
 	}
 	
 	@Test
 	public void deleteWorks(){
 		Applicant applicant = findFirstApplicantByFirstName("Michael");
 		applicant.delete();
-		assertTwo(Applicant.count());
+		assertThree(Applicant.count());
 	}
 }
