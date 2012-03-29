@@ -1,6 +1,7 @@
 package models;
 
 import static org.junit.Assert.*;
+import static models.Boat.BoatType.*;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -17,8 +18,8 @@ public class BoatTest extends UnitTest {
 	@Before
 	public void setup(){
 		Fixtures.deleteDatabase();
-		powerBoat = new Boat("power").save();
-		sailBoat = new Boat("sail").save();
+		powerBoat = new Boat(POWER).save();
+		sailBoat = new Boat(SAIL).save();
 	}
 	
 	@Test

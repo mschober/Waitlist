@@ -9,8 +9,12 @@ public class Boat extends Model {
 
 	public String type;
 
-	public Boat(String type) {
-		this.type = type;
+	public Boat(BoatType type) {
+		this.type = type.toString().toLowerCase();
+	}
+	
+	public enum BoatType {
+		POWER, SAIL
 	}
 
 }
