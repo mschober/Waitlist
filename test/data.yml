@@ -15,6 +15,9 @@ Contact(c1):
 Boat(b1):
     type: power
     
+Boat(b2):
+    type: sail
+    
 Applicant(withBoat):
     firstName: Michael
     lastName: Schober

@@ -4,7 +4,8 @@ import static org.junit.Assert.*;
 import static utils.WaitlistTestHelper.LOWERCASE;
 import static utils.Lakewood.*;
 
-
+import models.Boat;
+import models.Boat.BoatType;
 import models.PostalAddress;
 import models.Applicant;
 import models.Contact;
@@ -39,8 +40,8 @@ public class WaitlistTestHelper {
 		return new Contact("mike.schober@gmail.com", _253_468_4141, address).save();
 	}
 
-	public static Applicant createDefaultApplicant(Contact mikeGmail) {
-		return new Applicant(MICHAEL, SCHOBER, mikeGmail).save();
+	public static Applicant createDefaultApplicant(Contact mikeGmail, Boat powerBoat) {
+		return new Applicant(MICHAEL, SCHOBER, mikeGmail, powerBoat).save();
 	}
 
 	public static Applicant findByFirstName(String michael) {
@@ -56,7 +57,7 @@ public class WaitlistTestHelper {
 	}
 
 	public static Applicant createLowerCaseApplicant() {
-		return new Applicant(LOWERCASE, LOWERCASE, null);
+		return new Applicant(LOWERCASE, LOWERCASE, null, null);
 	}
 
 	public static void checkFields(String[] expects, String[] actuals) {
@@ -74,6 +75,10 @@ public class WaitlistTestHelper {
 	
 	public static void assertTwo(long count) {
 		assertEquals(2, count);
+	}
+
+	public static Boat createPowerBoat() {
+		return new Boat(BoatType.POWER).save();
 	}
 
 }

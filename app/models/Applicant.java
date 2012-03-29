@@ -15,12 +15,15 @@ public class Applicant extends Model {
 	
 	@OneToOne
 	public Contact contact;
+	@OneToOne
+	public Boat boat;
 	public Date date;
 
-	public Applicant(String firstName, String lastName, Contact contact) {
+	public Applicant(String firstName, String lastName, Contact contact, Boat boat) {
 		this.firstName = toCamelCase(firstName);
 		this.lastName = toCamelCase(lastName);
 		this.contact = contact;
+		this.boat = boat;
 		this.date = new Date();
 	}
 

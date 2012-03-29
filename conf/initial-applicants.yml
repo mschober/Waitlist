@@ -1,5 +1,5 @@
-# Test data
-
+# you describe your data using the YAML notation here
+# and then load them using Fixtures.load("data.yml")
 
 PostalAddress(pa1):
     address: 3706 Amalfi Way
@@ -11,6 +11,20 @@ Contact(c1):
     email: mike.schober@gmail.com
     phoneNumber: 253-468-4141
     postalAddress: pa1
+    
+Boat(b1):
+    type: power
+    
+Boat(b2):
+    type: sail
+    
+Applicant(withBoat):
+    firstName: Michael
+    lastName: Schober
+    date: 2009-03-25
+    contact: c1
+    boat: b1
+    
 
 Applicant(mike):
     firstName: Michael

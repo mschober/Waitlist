@@ -3,6 +3,8 @@ package controllers;
 import java.util.List;
 
 import models.Applicant;
+import models.Boat;
+import models.Boat.BoatType;
 import models.Contact;
 import models.PostalAddress;
 import models.contact.PhoneNumber;
@@ -57,7 +59,8 @@ public class Application extends Controller {
 		else {
 			PostalAddress address = new PostalAddress(postalAddress, city, state, zip).save();
 			Contact contact = new Contact(email, number.toString(), address).save();
-			new Applicant(fname, lname, contact).save();
+			Boat boat = new Boat(BoatType.POWER).save();
+			new Applicant(fname, lname, contact, boat).save();
 		}
 
 		index();

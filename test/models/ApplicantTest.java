@@ -18,13 +18,16 @@ import utils.WaitlistTestHelper;
 public class ApplicantTest extends WLTest {
 
 	private Applicant applicant;
-	private Contact mikeGmail;
+	private Contact mikeGmail;	
+	private Boat powerBoat;
+
 
 	@Before
 	public void setUp() throws Exception {
 		PostalAddress sbHome = createDefaultPostalAddress();
 		mikeGmail = createDefaultContact(sbHome);
-		applicant = createDefaultApplicant(mikeGmail);
+		powerBoat = WaitlistTestHelper.createPowerBoat();
+		applicant = createDefaultApplicant(mikeGmail, powerBoat);
 	}
 
 	@Test
