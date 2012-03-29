@@ -7,7 +7,10 @@ import play.db.jpa.Model;
 @Entity
 public class Boat extends Model {
 
-	public Boat(String string) {
+	public String type;
+
+	public Boat(String type) {
+		this.type = type;
 	}
 
 }
