@@ -1,6 +1,6 @@
 *{ You can use plain selenium command using the selenium tag }*
 
-#{fixture delete:'all', load:'data.yml' /}
+#{fixture delete:'all', load:models.fixtures.WLFixture.PATH_TO_LOAD_DATA_YML /}
 
 #{selenium}
     // Open the home page, and check that no error occured

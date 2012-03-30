@@ -11,6 +11,10 @@ import wl.WLTest;
 @Ignore
 public class WLFixture extends WLTest {
 	
+	private static final String DATA_YML = "data.yml";
+	private static final String PATH_TO_RESOURCES = "../resources/";
+	public static final String PATH_TO_LOAD_DATA_YML = PATH_TO_RESOURCES + DATA_YML;
+
 	@Before
 	public void loadData(){
 		prepDatabase();
@@ -27,6 +31,6 @@ public class WLFixture extends WLTest {
 	}
 	
 	private void load() {
-		Fixtures.loadModels("data.yml");
+		Fixtures.loadModels(PATH_TO_RESOURCES + DATA_YML);
 	}
 }
