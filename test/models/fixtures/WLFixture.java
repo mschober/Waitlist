@@ -10,8 +10,26 @@ import wl.WLTest;
 
 public abstract class WLFixture extends WLTest implements DataTest {
 	
-	private static final String DATA_YML = "data.yml";
-	public static final String PATH_TO_LOAD_DATA_YML = PATH_TO_RESOURCES + DATA_YML;
+	public enum DataFiles {
+		HAPPY_PATH_DATA();
+		
+		String yml;
+
+		DataFiles(){
+			this.yml = format(this) + addExtension();
+		}
+
+		private String addExtension() {
+			return ".yml";
+		}
+
+		private String format(DataFiles fileName) {
+			return fileName.toString().toLowerCase().replace("_", "-");
+		}
+		
+	}
+
+	public static final String PATH_TO_LOAD_DATA_YML = PATH_TO_RESOURCES + DataFiles.HAPPY_PATH_DATA.yml;
 
 	@Before
 	public void loadData(){
@@ -29,6 +47,6 @@ public abstract class WLFixture extends WLTest implements DataTest {
 	}
 	
 	private void load() {
-		Fixtures.loadModels(PATH_TO_RESOURCES + DATA_YML);
+		Fixtures.loadModels(PATH_TO_RESOURCES + DataFiles.HAPPY_PATH_DATA.yml);
 	}
 }
