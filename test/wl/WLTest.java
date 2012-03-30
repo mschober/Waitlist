@@ -7,8 +7,7 @@ import org.junit.Ignore;
 import play.test.Fixtures;
 import play.test.UnitTest;
 
-@Ignore
-public class WLTest extends UnitTest {
+public abstract class WLTest extends UnitTest {
 	
 	@Before
 	public void clearData(){
