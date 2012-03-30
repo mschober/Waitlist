@@ -15,6 +15,7 @@ public class Applicant extends Model {
 	
 	@OneToOne
 	public Contact contact;
+	
 	@OneToOne
 	public Boat boat;
 	public Date date;

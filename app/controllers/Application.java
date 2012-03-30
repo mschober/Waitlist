@@ -11,6 +11,7 @@ import models.contact.PhoneNumber;
 //import play.data.validation.Email;
 import play.data.validation.Range;
 import play.data.validation.Required;
+import play.db.jpa.JPABase;
 import play.mvc.Controller;
 import utils.Lakewood;
 import utils.SimpleEmailValidator;
@@ -31,6 +32,9 @@ public class Application extends Controller {
 	public static void post(
 			@Required String fname, 
 			@Required String lname,
+			
+			@Required 
+			String boatType,
 
 			@Required 
 			@Email 
@@ -40,11 +44,10 @@ public class Application extends Controller {
 			@Phone
 			String phoneNumber,
 			
-			@Required String postalAddress, 
-			@Required String city,
-			@Required String state, 
+			String postalAddress, 
+			String city,
+			String state, 
 			
-			@Required 
 			@Range(min=0, max=99999)
 			int zip) {
 		PhoneNumber number = new PhoneNumber(phoneNumber);
@@ -52,14 +55,19 @@ public class Application extends Controller {
 			params.flash();
 			validation.keep();
 		}
-		else if (!new SimpleEmailValidator().validate(email))
+/*		else if (!new SimpleEmailValidator().validate(email))
 			System.out.println("invalid email address for: " + email);
 		else if (!number.isValid())
-			System.out.println("invalid phone number for: " + phoneNumber);
+			System.out.println("invalid phone number for: " + phoneNumber);*/
 		else {
 			PostalAddress address = new PostalAddress(postalAddress, city, state, zip).save();
 			Contact contact = new Contact(email, number.toString(), address).save();
-			Boat boat = new Boat(BoatType.POWER).save();
+			Boat boat = null;
+			if(boatType.equals("Power"))
+				boat = new Boat(BoatType.POWER).save();
+			else if(boatType.equals("Sail"))
+				boat = new Boat(BoatType.SAIL).save();
+				
 			new Applicant(fname, lname, contact, boat).save();
 		}
 

@@ -8,9 +8,29 @@
             <span class="error">#{error 'fname' /}</span>
         </p>
         <p>
+<!--          <div class="control-group error">-->
+<!--            <label class="control-label" for="inputError">Last name: </label>-->
+<!--            <div class="controls">-->
+<!--              <input type="text" id="inputError" name="lname" value="${flash.lname}" placeholder="Enter...">-->
+<!--              <span class="help-inline">#{error 'lname' /}</span>-->
+<!--            </div>-->
+<!--         </div>-->
             <label for="lname">Last name: </label>
             <input type="text" name="lname" value="${flash.lname}" placeholder="Enter…"/>
             <span class="error">#{error 'lname' /}</span>
+        </p>
+        <p>
+             <div class="control-group">
+                <label class="control-label" for="boatType">Select Boat Type</label>
+                <div class="controls">
+                  <select name="boatType" id="boatType" class="required">
+                    <option value="">Unspecified...</option>
+                    <option value="power">Power</option>
+                    <option value="sail">Sail</option>
+                  </select>
+                <span class="error">#{error 'boatType' /}</span>
+                </div>
+              </div>
         </p>
         <p>
             <label for="email">Email address: </label>
