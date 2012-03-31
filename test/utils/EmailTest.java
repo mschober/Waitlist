@@ -21,33 +21,35 @@ public class EmailTest extends WLTest {
         "mike.schober@1234.com",
         "mike.schober@gmail.123assdfaeaw.com",
         "a@b.com",
-        "mkyong@yahoo.com",
-        "mkyong-100@yahoo.com",
-        "mkyong.100@yahoo.com",
-        "mkyong111@mkyong.com",
-        "mkyong-100@mkyong.net",
-        "mkyong.100@mkyong.com.au",
-        "mkyong@1.com",
-        "mkyong@gmail.com.com"
+        "mschober@yahoo.com",
+        "mschober-100@yahoo.com",
+        "mschober.100@yahoo.com",
+        "mschober111@mschober.com",
+        "mschober-100@mschober.net",
+        "mschober.100@mschober.com.au",
+        "mschober@1.com",
+        "mschober@gmail.com.com"
+        //D'Souza.Shawn@pennmutual.com
+        //O'Malley.Dave@xyz.com
     };
 
     private static final String[] expectedFalse = {
         ")(mike.schober@gmail.com",
         "mike.schober@)(gmail.com",
         "mike.schober@gmail.)(com",
-        "mkyong",
-        "mkyong@.com.my",
-        "mkyong123@gmail.a",
-        "mkyong123@.com",
-        "mkyong123@.com.com",
-        ".mkyong@mkyong.com",
-        "mkyong()*@gmail.com",
-        "mkyong@%*.com",
-        "mkyong..2002@gmail.com",
-        "mkyong.@gmail.com",
-        "mkyong@mkyong@gmail.com",
-        "mkyong@gmail.com.1a",
-        "mkyong@gmail.com.1a"
+        "mschober",
+        "mschober@.com.my",
+        "mschober123@gmail.a",
+        "mschober123@.com",
+        "mschober123@.com.com",
+        ".mschober@mschober.com",
+        "mschober()*@gmail.com",
+        "mschober@%*.com",
+        "mschober..2002@gmail.com",
+        "mschober.@gmail.com",
+        "mschober@mschober@gmail.com",
+        "mschober@gmail.com.1a",
+        "mschober@gmail.com.1a"
     };
 
     private static final String[] reasons = {

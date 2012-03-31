@@ -6,16 +6,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import play.data.validation.Validation;
 import play.libs.XPath;
+import play.mvc.Http;
 import play.mvc.Http.Response;
 import play.mvc.Router;
 import play.test.FunctionalTest;
 
 public class ApplicationControllerTest extends FunctionalTest {
 
+	@Ignore
 	@Test
 	public void test() {
 		String fname = "Go";
@@ -39,6 +42,28 @@ public class ApplicationControllerTest extends FunctionalTest {
 		params.put("state", "CA");
 		
 		Response response = POST(Router.reverse("Application.post").url, params);
+		for(String s : response.headers.keySet()){
+			System.out.println(s);
+		}
+		for(Http.Header s : response.headers.values()){
+			System.out.println(s);
+		}
+		System.out.println(response.out.size());
+		System.out.println(response.contentType);
+		for(String s : response.cookies.keySet()){
+			System.out.println(s);
+		}
+		for(Http.Cookie s : response.cookies.values()){
+			System.out.println(s.domain);
+			System.out.println(s.name);
+			System.out.println(s.path);
+			System.out.println(s.value);
+
+		}
+		
+		Application app = new Application();
+		app.post(fname, lname, boatType, email, phoneNumber, postalAddress, city, state, zip);
+		assertTrue(!Validation.hasErrors());
 	}
 
 }

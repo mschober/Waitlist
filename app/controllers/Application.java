@@ -50,16 +50,12 @@ public class Application extends Controller {
 			
 			@Range(min=0, max=99999)
 			int zip) {
-		PhoneNumber number = new PhoneNumber(phoneNumber);
 		if (validation.hasErrors()){
 			params.flash();
 			validation.keep();
 		}
-/*		else if (!new SimpleEmailValidator().validate(email))
-			System.out.println("invalid email address for: " + email);
-		else if (!number.isValid())
-			System.out.println("invalid phone number for: " + phoneNumber);*/
 		else {
+			PhoneNumber number = new PhoneNumber(phoneNumber);
 			PostalAddress address = new PostalAddress(postalAddress, city, state, zip).save();
 			Contact contact = new Contact(email, number.toString(), address).save();
 			Boat boat = null;
