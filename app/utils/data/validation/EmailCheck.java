@@ -10,8 +10,11 @@ import net.sf.oval.context.OValContext;
 @SuppressWarnings("serial")
 public class EmailCheck extends AbstractAnnotationCheck<Email> {
 
-    final static String mes = "validation.email";
-    static Pattern emailPattern = Pattern.compile("[\\w!#$%&'*+/=?^_`{|}~-]+(?:\\.[\\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\\w](?:[\\w-]*[\\w])?\\.)+[a-zA-Z0-9](?:[\\w-]*[\\w])?");
+    private static final String PLAY_DEFAULT_EMAIL_PATTERN = "[\\w!#$%&'*+/=?^_`{|}~-]+(?:\\.[\\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\\w](?:[\\w-]*[\\w])?\\.)+[a-zA-Z0-9](?:[\\w-]*[\\w])?";
+    private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+    
+	final static String mes = "validation.email";
+    static Pattern emailPattern = Pattern.compile(EMAIL_PATTERN);
 
     @Override
     public void configure(Email email) {
@@ -20,10 +23,11 @@ public class EmailCheck extends AbstractAnnotationCheck<Email> {
 
     public boolean isSatisfied(Object validatedObject, Object value, OValContext context, Validator validator) {
         value = Validation.willBeValidated(value);
-        if (value == null || value.toString().length() == 0) {
+        String email = value.toString();
+		if (value == null || email.length() == 0) {
             return true;
         }
-        return emailPattern.matcher(value.toString()).matches();
+        return emailPattern.matcher(email).matches();
     }
 
 	public static boolean validate(String emailAddress) {

@@ -19,6 +19,7 @@ public class RegexEmailValidator implements EmailValidator{
 	private static final String NAME = FROM_BEGINNING + UNDERSCORE_A_Za_z0_9_DASH + CONTINUE_INCLUDE + START_GROUP + DOT + UNDERSCORE_A_Za_z0_9_DASH + CONTINUE_INCLUDE + END_GROUP + REPEAT;
 	
 	private static final String EMAIL_PATTERN = NAME + "@" + DOMAIN + SUB_DOMAIN;
+	
  
 	@Override
 	public boolean validate(String hex){

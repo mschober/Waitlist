@@ -17,7 +17,6 @@ public class PhoneCheck extends AbstractAnnotationCheck<Phone> {
 	private static final String EXENSION = "((x|ext|extension)[ ]?[0-9]{1,4})?";
 	
 	final static String mes = "validation.phone";
-    											//"^([\\+][0-9]{1,3}([ \\.\\-]))?([\\(]{1}[0-9]{2,6}[\\)])?([0-9 \\.\\-/]{3,20})((x|ext|extension)[ ]?[0-9]{1,4})?$"
     static Pattern phonePattern = Pattern.compile("^" + AREA_CODE + PREFIX + LINE_NUMBER /*+ EXENSION*/ + "$");
 
     @Override
@@ -28,24 +27,22 @@ public class PhoneCheck extends AbstractAnnotationCheck<Phone> {
     @Override
     public boolean isSatisfied(Object validatedObject, Object value, OValContext context, Validator validator)
     throws OValException {
-        if (value == null || value.toString().length() == 0) {
-            return true;
-        }
-        return phonePattern.matcher(value.toString()).matches() && isTenDigits(value.toString());
+        String phoneNumber = value.toString();
+        return phonePattern.matcher(phoneNumber).matches() && isTenDigits(phoneNumber);
     }
 
 	private boolean isTenDigits(String phoneNumber) {
 		int countNumbers = countNumbers(phoneNumber);
-		if(countNumbers == 10){
+		if(countNumbers == 10)
 			return true;
-		}
+		
 		setMessage("Length must be 10 not " + countNumbers);
 		return false;
 	}
 
-	private int countNumbers(String string) {
+	private int countNumbers(String inPhoneNumber) {
 		int numbers = 0;
-		for(char c: string.toCharArray())
+		for(char c: inPhoneNumber.toCharArray())
 			if(PhoneNumberValidator.isANumber(c))
 				numbers++;
 		return numbers;

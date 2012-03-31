@@ -1,0 +1,33 @@
+*{ You can use plain selenium command using the selenium tag }*
+
+#{fixture delete:'all', load:models.fixtures.WLFixture.PATH_TO_LOAD_DATA_YML /}
+
+inputting an applicant
+#{selenium}
+    open('/')
+
+	type('fname', 'Jennie')	
+	type('lname', 'Schober')
+	select('boatType', 'Power')	
+	type('email', 'jennie.schober@gmail.com')
+	type('phoneNumber', '253-350-0220')
+	type('postalAddress', '3706 Amalfi Way')
+	type('city', 'Santa Barbara')
+	type('state', 'CA')
+	type('zip', '93105')
+	
+	clickAndWait('submit')
+	assertTitle('Home')
+	clickAndWait('que')
+	assertTitle('Que')
+	
+	verifyText('//table[@id='applicants']//tr[2]/td[1]', '2')
+	# dont verify date verifyText('//table[@id='applicants']//tr[1]/td[2]', '1')
+	verifyText('//table[@id='applicants']//tr[2]/td[3]', 'Jennie')
+	verifyText('//table[@id='applicants']//tr[2]/td[4]', 'Schober')
+	verifyText('//table[@id='applicants']//tr[2]/td[5]', '3706 Amalfi Way
+Santa Barbara, CA 93105')
+	verifyText('//table[@id='applicants']//tr[2]/td[6]', 'jennie.schober@gmail.com')
+	verifyText('//table[@id='applicants']//tr[2]/td[7]', '253-350-0220')
+	
+#{/selenium}

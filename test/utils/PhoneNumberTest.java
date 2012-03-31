@@ -27,6 +27,6 @@ public class PhoneNumberTest extends WLTest {
 
 		assertFalse(PhoneCheck.validate("adfa"));
 		assertFalse(PhoneCheck.validate("01234567890"));
-//		assertFalse(Play.configuration.getProperty("validation.phone"), PhoneCheck.validate("253 468 414"));
+//		assertFalse(PhoneCheck.validate("253 468 414"));
 	}
 }
