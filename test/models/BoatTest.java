@@ -30,13 +30,13 @@ public class BoatTest extends UnitTest {
 	
 	@Test
 	public void isPowerBoat(){
-		Boat found = Boat.find("byType", "power").first();
+		Boat found = Boat.find("byType", "Power").first();
 		assertEquals(powerBoat, found);
 	}
 	
 	@Test
 	public void isSailBoat(){
-		Boat found = Boat.find("byType", "sail").first();
+		Boat found = Boat.find("byType", "Sail").first();
 		assertEquals(sailBoat, found);
 	}
 
