@@ -19,8 +19,8 @@ public class BoatTest extends UnitTest {
 	@Before
 	public void setup(){
 		Fixtures.deleteDatabase();
-		powerBoat = new Boat(POWER).save();
-		sailBoat = new Boat(SAIL).save();
+		powerBoat = new Boat(POWER, 10, 10).save();
+		sailBoat = new Boat(SAIL, 10, 10).save();
 	}
 	
 	@Test
@@ -38,6 +38,24 @@ public class BoatTest extends UnitTest {
 	public void isSailBoat(){
 		Boat found = Boat.find("byType", "Sail").first();
 		assertEquals(sailBoat, found);
+	}
+	
+	@Test
+	public void hasLength(){
+		int length = 12;
+		powerBoat.setLength(length);
+		Boat found = Boat.find("byLength", length).first();
+		assertNotNull(found);
+		assertEquals(length, found.length);
+	}
+	
+	@Test
+	public void hasBeam(){
+		int beam = 15;
+		sailBoat.setBeam(beam);
+		Boat found = Boat.find("byBeam", beam).first();
+		assertNotNull(found);
+		assertEquals(beam, found.beam);
 	}
 
 }
