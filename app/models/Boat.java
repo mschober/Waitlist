@@ -13,7 +13,7 @@ public class Boat extends Model {
 	public int beam;
 
 	public Boat(BoatType type) {
-		this.type = type.toString().toLowerCase();
+		this.type = type.toString();
 		this.length = 10;
 		this.beam = 10;
 	}
