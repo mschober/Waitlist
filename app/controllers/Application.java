@@ -59,9 +59,9 @@ public class Application extends Controller {
 			PostalAddress address = new PostalAddress(postalAddress, city, state, zip).save();
 			Contact contact = new Contact(email, number.toString(), address).save();
 			Boat boat = null;
-			if(boatType.equalsIgnoreCase("Power"))
+			if(boatType.equals("Power"))
 				boat = new Boat(BoatType.POWER).save();
-			else if(boatType.equalsIgnoreCase("Sail"))
+			else if(boatType.equals("Sail"))
 				boat = new Boat(BoatType.SAIL).save();
 			
 			new Applicant(fname, lname, contact, boat).save();

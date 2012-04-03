@@ -8,7 +8,9 @@ inputting an applicant
 
 	type('fname', 'Jennie')	
 	type('lname', 'Schober')
-	select('boatType', 'Power')	
+	select('boatType', 'Power')
+	type('blength', '10')
+	type('bbeam', '10')	
 	type('email', 'jennie.schober@gmail.com')
 	type('phoneNumber', '253-350-0220')
 	type('postalAddress', '3706 Amalfi Way')
@@ -26,9 +28,11 @@ inputting an applicant
 	verifyText('//table[@id='applicants']//tr[2]/td[3]', 'Jennie')
 	verifyText('//table[@id='applicants']//tr[2]/td[4]', 'Schober')
 	verifyText('//table[@id='applicants']//tr[2]/td[5]', 'power')
-	verifyText('//table[@id='applicants']//tr[2]/td[6]', '3706 Amalfi Way
+	verifyText('//table[@id='applicants']//tr[2]/td[6]', '10')
+	verifyText('//table[@id='applicants']//tr[2]/td[7]', '10')
+	verifyText('//table[@id='applicants']//tr[2]/td[8]', '3706 Amalfi Way
 Santa Barbara, CA 93105')
-	verifyText('//table[@id='applicants']//tr[2]/td[7]', 'jennie.schober@gmail.com')
-	verifyText('//table[@id='applicants']//tr[2]/td[8]', '253-350-0220')
+	verifyText('//table[@id='applicants']//tr[2]/td[9]', 'jennie.schober@gmail.com')
+	verifyText('//table[@id='applicants']//tr[2]/td[10]', '253-350-0220')
 	
 #{/selenium}
