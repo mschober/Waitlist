@@ -19,7 +19,7 @@ public class Boat extends Model {
 		
 		@Override
 		public String toString(){
-			return this.name().toLowerCase();
+			return String.valueOf(this.name().charAt(0)) + this.name().substring(1).toLowerCase();
 		}
 	}
 

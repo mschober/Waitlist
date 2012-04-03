@@ -13,7 +13,7 @@ Contact(c1):
     postalAddress: pa1
     
 Boat(b1):
-    type: power
+    type: Power
     
 
 Applicant(mike):

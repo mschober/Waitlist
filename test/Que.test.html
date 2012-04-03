@@ -12,12 +12,13 @@ que page checks
     verifyText('//table[@id='applicants']//tr[1]/th[2]', 'Date Applied')
     verifyText('//table[@id='applicants']//tr[1]/th[3]', 'First Name')
     verifyText('//table[@id='applicants']//tr[1]/th[4]', 'Last Name')
-    verifyText('//table[@id='applicants']//tr[1]/th[5]', 'Address')
-    verifyText('//table[@id='applicants']//tr[1]/th[6]', 'Email')
-    verifyText('//table[@id='applicants']//tr[1]/th[7]', 'Phone Number')
+    verifyText('//table[@id='applicants']//tr[1]/th[5]', 'Boat Type')
+    verifyText('//table[@id='applicants']//tr[1]/th[6]', 'Address'
+    verifyText('//table[@id='applicants']//tr[1]/th[7]', 'Email')
+    verifyText('//table[@id='applicants']//tr[1]/th[8]', 'Phone Number')
 
 	#phone number is formatted correctly
-	verifyText('//table[@id='applicants']//tr[1]/td[7]', '253-468-4141')
+	verifyText('//table[@id='applicants']//tr[1]/td[8]', '253-468-4141')
 	
 	clickAndWait('apply-form')
 	assertTitle('Home')
