@@ -33,20 +33,20 @@ public abstract class WLFixture extends WLTest implements DataTest {
 
 	@Before
 	public void loadData(){
-		prepDatabase();
+		prepDatabase(DataFiles.HAPPY_PATH_DATA);
 	}
 	
 	@After
 	public void reloadData(){
-		prepDatabase();
+		prepDatabase(DataFiles.HAPPY_PATH_DATA);
 	}
 
-	private void prepDatabase() {
+	protected void prepDatabase(DataFiles happyPathData) {
 		clearData();
-		load();
+		load(happyPathData);
 	}
 	
-	private void load() {
-		Fixtures.loadModels(PATH_TO_RESOURCES + DataFiles.HAPPY_PATH_DATA.yml);
+	private void load(DataFiles happyPathData) {
+		Fixtures.loadModels(PATH_TO_RESOURCES + happyPathData.yml);
 	}
 }
