@@ -9,9 +9,13 @@ import play.db.jpa.Model;
 public class Boat extends Model {
 
 	public String type;
+	public int length;
+	public int beam;
 
 	public Boat(BoatType type) {
 		this.type = type.toString().toLowerCase();
+		this.length = 10;
+		this.beam = 10;
 	}
 	
 	public enum BoatType {
