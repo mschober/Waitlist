@@ -57,5 +57,17 @@ public class BoatTest extends UnitTest {
 		assertNotNull(found);
 		assertEquals(beam, found.beam);
 	}
+	
+	@Test
+	public void settersReturnBoat(){
+		int length = 20;
+		int beam = 5;
+		powerBoat.setLength(length).setBeam(beam);
+		Boat found = Boat.find("byBeam", beam).first();
+		assertNotNull(found);
+		
+		found = Boat.find("byLength", length).first();
+		assertEquals(beam, found.beam);
+	}
 
 }

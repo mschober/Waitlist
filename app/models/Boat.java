@@ -33,14 +33,16 @@ public class Boat extends Model {
 		}
 	}
 
-	public void setLength(int length) {
+	public Boat setLength(int length) {
 		this.length = length;
 		this.save();
+		return this;
 	}
 
-	public void setBeam(int beam) {
+	public Boat setBeam(int beam) {
 		this.beam = beam;
 		this.save();
+		return this;
 	}
 
 }

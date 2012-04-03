@@ -35,6 +35,8 @@ public class Application extends Controller {
 			
 			@Required 
 			String boatType,
+			int boatLength,
+			int boatBeam,
 
 			@Required 
 			@Email 
@@ -58,16 +60,27 @@ public class Application extends Controller {
 			PhoneNumber number = new PhoneNumber(phoneNumber);
 			PostalAddress address = new PostalAddress(postalAddress, city, state, zip).save();
 			Contact contact = new Contact(email, number.toString(), address).save();
-			Boat boat = null;
-			if(boatType.equals("Power"))
-				boat = new Boat(BoatType.POWER).save();
-			else if(boatType.equals("Sail"))
-				boat = new Boat(BoatType.SAIL).save();
+			
+			Boat boat = buildABoat(boatType, boatLength, boatBeam);
 			
 			new Applicant(fname, lname, contact, boat).save();
 		}
 
 		index();
+	}
+
+	private static Boat buildABoat(String boatType, int boatLength, int boatBeam) {
+		Boat boat = null;
+		boatLength = (boatLength == 0) ? -1: boatLength;
+		boatBeam = (boatBeam == 0) ? -1: boatBeam;
+		
+		if(boatType.equals("Power"))
+			boat = new Boat(BoatType.POWER).save();
+		else if(boatType.equals("Sail"))
+			boat = new Boat(BoatType.SAIL).save();
+		
+		boat.setLength(boatLength).setBeam(boatBeam);
+		return boat;
 	}
 
 }
