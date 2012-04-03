@@ -15,7 +15,12 @@ public class Boat extends Model {
 	}
 	
 	public enum BoatType {
-		POWER, SAIL
+		POWER, SAIL;
+		
+		@Override
+		public String toString(){
+			return this.name().toLowerCase();
+		}
 	}
 
 }
