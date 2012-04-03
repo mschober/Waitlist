@@ -29,7 +29,7 @@ public class ApplicantFixture extends WLFixture {
 	@Test
 	public void countsMatch(){
 		assertOnlyOne(Applicant.count());
-		assertOnlyOne(findAllApplicantsBy(ALL_BY_ID).size());
+		assertOnlyOne(findAllApplicants().size());
 	}
 	
 	@Test

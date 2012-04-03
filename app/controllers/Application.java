@@ -25,7 +25,7 @@ public class Application extends Controller {
 	}
 
 	public static void que() {
-		List<Applicant> applicants = Lakewood.findAllApplicantsBy(Lakewood.ALL_BY_ID);
+		List<Applicant> applicants = Lakewood.findAllApplicants();
 		render(applicants);
 	}
 
