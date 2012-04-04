@@ -1,13 +1,5 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
-<div class="well">
-    #{form @Application.post()}
-        <p>
-            <label for="fname">First name: </label>
-            <input type="text" name="fname" value="${flash.fname}" placeholder="Enter…"/>
-            <span class="error">#{error 'fname' /}</span>
-        </p>
-        <p>
 <!--          <div class="control-group error">-->
 <!--            <label class="control-label" for="inputError">Last name: </label>-->
 <!--            <div class="controls">-->
@@ -15,10 +7,15 @@
 <!--              <span class="help-inline">#{error 'lname' /}</span>-->
 <!--            </div>-->
 <!--         </div>-->
-            <label for="lname">Last name: </label>
-            <input type="text" name="lname" value="${flash.lname}" placeholder="Enter…"/>
-            <span class="error">#{error 'lname' /}</span>
-        </p>
+<div class="well">
+    #{form @Application.post()}
+<!--        <p>-->
+<!--            <label for="fname">First name: </label>-->
+<!--            <input type="text" name="fname" value="${flash.fname}" placeholder="Enter…"/>-->
+<!--            <span class="error">#{error 'fname' /}</span>-->
+<!--        </p>-->
+        #{addField name:'fname', text:'First name: ' /}
+        #{addField name:'lname', text:'Last name: ' /}
         <p>
              <div class="control-group">
                 <label class="control-label" for="boatType">Select Boat Type</label>
@@ -32,43 +29,14 @@
                 </div>
               </div>
         </p>
-        <p>
-            <label for="boatLength">Input Boat Length in inches: </label>
-            <input type="text" name="boatLength" value="${flash.boatLength}" placeholder="Enter…"/>
-            <span class="error">#{error 'boatLength' /}</span>
-        </p>
-        <p>
-            <label for="boatBeam">Input Boat Beam in inches: </label>
-            <input type="text" name="boatBeam" value="${flash.boatBeam}" placeholder="Enter…"/>
-            <span class="error">#{error 'boatBeam' /}</span>
-        </p>
-        <p>
-            <label for="email">Email address: </label>
-            <input class="control-group error" type="text" name="email" value="${flash.email}" placeholder="Enter…"/>
-            <span class="error">#{error 'email' /}</span>
-        </p>
-        <p>
-            <label for="phoneNumber">Phone number: </label>
-            <input type="text" name="phoneNumber" id="phoneNumber" value="${flash.phoneNumber}" placeholder="Enter…"/>
-            <span class="error">#{error 'phoneNumber' /}</span>
-        </p>
-        <p>
-            <label for="postalAddress">Address: </label>
-            <input type="text" name="postalAddress" id="postalAddress" value="${flash.postalAddress}" placeholder="Enter…"/>
-        </p>
-        <p>
-            <label for="city">City: </label>
-            <input type="text" name="city" value="${flash.city}" placeholder="Enter…"/>
-        </p>
-        <p>
-            <label for="state">State: </label>
-            <input type="text" name="state" value="${flash.state}" placeholder="Enter…"/>
-        </p>
-        <p>
-            <label for="zip">Zip: </label>
-            <input type="text" name="zip" value="${flash.zip}" placeholder="Enter…"/>
-            <span class="error">#{error 'zip' /}</span>
-        </p>
+        #{addField name:'boatLength', text:'Input Boat Length in inches: ' /}
+        #{addField name:'boatBeam', text:'Input Boat Beam in inches: ' /}
+        #{addField name:'email', text:'Email address: ' /}
+        #{addField name:'phoneNumber', text:'Phone number: ' /}
+        #{addField name:'postalAddress', text:'Address: ' /}
+        #{addField name:'city', text:'City: ' /}
+        #{addField name:'state', text:'State: ' /}
+        #{addField name:'zip', text:'Zip: ' /}
         <p>
             <input id="submit" type="submit" class="btn btn-primary" value="Submit" />
             <a class="btn" id="que" href="/que">View Que</a>
