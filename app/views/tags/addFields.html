@@ -1,0 +1,7 @@
+<p>
+    <label for="${_name}">${_text}</label>
+#{list items:1.._numFields, as:'nfs'}
+    <input type="text" name="${(_name + nfs)}" value="${flash.(_name + nfs)}" placeholder="Enter…"/>
+    <span class="error">#{error "${(_name + nfs)}" /}</span>
+#{/list}
+</p>

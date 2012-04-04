@@ -30,8 +30,11 @@ public class Application extends Controller {
 	}
 
 	public static void post(
-			@Required String fname, 
-			@Required String lname,
+			@Required String fname1, 
+			@Required String fname2, 
+
+			@Required String lname1,
+			@Required String lname2,
 			
 			@Required 
 			String boatType,
@@ -40,30 +43,43 @@ public class Application extends Controller {
 
 			@Required 
 			@Email 
-			String email, 
-			
+			String email1, 
+
+			@Required 
+			@Email 
+			String email2, 
+
 			@Required 
 			@Phone
-			String phoneNumber,
+			String phoneNumber1,
+			@Required 
+			@Phone
+			String phoneNumber2,
 			
-			String postalAddress, 
-			String city,
-			String state, 
+			String postalAddress1, 
+			String postalAddress2, 
+			String city1,
+			String city2,
+			String state1, 
+			String state2, 
 			
 			@Range(min=0, max=99999)
-			int zip) {
+			int zip1,
+			
+			@Range(min=0, max=99999)
+			int zip2){
 		if (validation.hasErrors()){
 			params.flash();
 			validation.keep();
 		}
 		else {
-			PhoneNumber number = new PhoneNumber(phoneNumber);
-			PostalAddress address = new PostalAddress(postalAddress, city, state, zip).save();
-			Contact contact = new Contact(email, number.toString(), address).save();
+			PhoneNumber number = new PhoneNumber(phoneNumber2);
+			PostalAddress address = new PostalAddress(postalAddress1, city1, state1, zip1).save();
+			Contact contact = new Contact(email1, number.toString(), address).save();
 			
 			Boat boat = buildABoat(boatType, boatLength, boatBeam);
 			
-			new Applicant(fname, lname, contact, boat).save();
+			new Applicant(fname1, lname1, contact, boat).save();
 		}
 
 		index();

@@ -9,13 +9,6 @@
 <!--         </div>-->
 <div class="well">
     #{form @Application.post()}
-<!--        <p>-->
-<!--            <label for="fname">First name: </label>-->
-<!--            <input type="text" name="fname" value="${flash.fname}" placeholder="Enter…"/>-->
-<!--            <span class="error">#{error 'fname' /}</span>-->
-<!--        </p>-->
-        #{addField name:'fname', text:'First name: ' /}
-        #{addField name:'lname', text:'Last name: ' /}
         <p>
              <div class="control-group">
                 <label class="control-label" for="boatType">Select Boat Type</label>
@@ -31,12 +24,14 @@
         </p>
         #{addField name:'boatLength', text:'Input Boat Length in inches: ' /}
         #{addField name:'boatBeam', text:'Input Boat Beam in inches: ' /}
-        #{addField name:'email', text:'Email address: ' /}
-        #{addField name:'phoneNumber', text:'Phone number: ' /}
-        #{addField name:'postalAddress', text:'Address: ' /}
-        #{addField name:'city', text:'City: ' /}
-        #{addField name:'state', text:'State: ' /}
-        #{addField name:'zip', text:'Zip: ' /}
+        #{addFields name:'fname', text:'First name: ', numFields:2 /}
+        #{addFields name:'lname', text:'Last name: ', numFields:2 /}
+        #{addFields name:'email', text:'Email address: ', numFields:2 /}
+        #{addFields name:'phoneNumber', text:'Phone number: ', numFields:2 /}
+        #{addFields name:'postalAddress', text:'Address: ', numFields:2 /}
+        #{addFields name:'city', text:'City: ', numFields:2 /}
+        #{addFields name:'state', text:'State: ', numFields:2 /}
+        #{addFields name:'zip', text:'Zip: ', numFields:2 /}
         <p>
             <input id="submit" type="submit" class="btn btn-primary" value="Submit" />
             <a class="btn" id="que" href="/que">View Que</a>

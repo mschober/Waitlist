@@ -1,0 +1,5 @@
+<p>
+    <label for="${_name}">${_text}</label>
+    <input type="text" name="${_name}" value="${flash._name}" placeholder="Enter…"/>
+    <span class="error">#{error '${_name}' /}</span>
+</p>
